@@ -1,10 +1,35 @@
 import { CheckCircle2 } from "lucide-react"
+import Image from "next/image"
 
 const highlights = [
   "Sistemas claros y medibles",
   "Soluciones escalables",
   "Visión práctica",
   "Resultados tangibles",
+]
+
+const teamMembers = [
+  {
+    name: "Hernan Stupniki",
+    role: "Ingeniero de datos y automatización",
+    description:
+      "Soy analista en sistemas y estudiante avanzado de Ingenieria en Sistemas de la Informacion. Me enfoco en Python, SQL, n8n, Spark y Airflow para disenar automatizaciones y soluciones de datos orientadas a resultados.",
+    photo: "/hernan-stupniki.jpg",
+  },
+  {
+    name: "Tobias Tarnowski",
+    role: "Tecnico informatico y analista de sistemas",
+    description:
+      "Soy tecnico informatico y analista de sistemas. Me enfoco en Python, SQL y Power BI, y como estudiante de Ingenieria en Sistemas de Informacion trabajo para convertir datos y procesos en soluciones practicas para el negocio.",
+    photo: "/tobias-tarnowski.png",
+  },
+  {
+    name: "Facundo Salazar",
+    role: "Analista en Sistemas",
+    description:
+      "Soy analista en sistemas y estudiante avanzado de Ingenieria en Sistemas de la Informacion. Me enfoco en desarrollo de software, redes y automatizacion, con una mirada de emprendimiento y negocios tecnologicos para crear soluciones utiles y escalables.",
+    photo: "/facundo-salazar.png",
+  },
 ]
 
 export function About() {
@@ -57,6 +82,30 @@ export function About() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="mt-14 sm:mt-16">
+          <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">Nuestro equipo</h3>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {teamMembers.map((member) => (
+              <article key={member.name} className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
+                <div className="flex items-center gap-4">
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    width={64}
+                    height={64}
+                    className="h-16 w-16 rounded-xl object-cover"
+                  />
+                  <div>
+                    <h4 className="text-base font-semibold text-foreground">{member.name}</h4>
+                    <p className="text-sm font-medium text-muted-foreground">{member.role}</p>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{member.description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </div>

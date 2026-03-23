@@ -54,7 +54,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicios" className="bg-background py-20 sm:py-28">
+    <section id="servicios" className="bg-background pt-16 pb-20 sm:pt-24 sm:pb-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
