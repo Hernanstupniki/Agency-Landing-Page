@@ -46,7 +46,7 @@ export function TargetAudience() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            ¿Para quién es KORA?
+            ¿Para quién es ZUBU?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Trabajamos con negocios que necesitan digitalizar procesos, responder más rápido y tener más control

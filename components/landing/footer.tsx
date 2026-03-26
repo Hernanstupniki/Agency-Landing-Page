@@ -20,7 +20,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="/" className="flex items-center gap-2">
-              <span className="text-xl font-bold tracking-tight text-foreground">KORA</span>
+              <span className="text-xl font-bold tracking-tight text-foreground">ZUBU</span>
               <span className="text-sm font-medium text-muted-foreground">Agency</span>
             </a>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
@@ -39,7 +39,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/koradevagency/"
+                href="https://www.instagram.com/zubudevagency/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-foreground"
@@ -88,7 +88,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border/40 pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} KORA Agency. Todos los derechos reservados.
+            © {new Date().getFullYear()} ZUBU Agency. Todos los derechos reservados.
           </p>
         </div>
       </div>

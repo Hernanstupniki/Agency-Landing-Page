@@ -38,7 +38,7 @@ export function Hero() {
 
           <h1 className="flex flex-col items-center lg:items-start">
             <span className={`${heroPrimaryFont.className} block text-6xl font-black uppercase tracking-tight text-[#0a0f1c] sm:text-7xl lg:text-8xl`}>
-              KORA
+              ZUBU
             </span>
           </h1>
 

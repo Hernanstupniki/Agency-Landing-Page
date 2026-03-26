@@ -23,7 +23,7 @@ const testimonials = [
     metric: "+40% en ventas",
   },
   {
-    quote: "KORA entendió nuestro problema y nos propuso una solución práctica y profesional.",
+    quote: "ZUBU entendió nuestro problema y nos propuso una solución práctica y profesional.",
     author: "Roberto Sánchez",
     role: "Fundador",
     company: "Inmobiliaria Sur",
@@ -37,7 +37,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Clientes que confiaron en KORA
+            Clientes que confiaron en ZUBU
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Nuestros clientes valoran la claridad, la eficiencia y el impacto real de cada solución implementada
