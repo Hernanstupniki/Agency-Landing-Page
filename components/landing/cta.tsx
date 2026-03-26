@@ -70,7 +70,7 @@ export function CTA() {
               </Button>
               <Button asChild variant="outline" className="w-full border-black/20 text-black hover:bg-black/5">
                 <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@zubu.agency&su=Consulta%20desde%20la%20web"
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@zubuagency.com&su=Consulta%20desde%20la%20web"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setContactModalOpen(false)}
