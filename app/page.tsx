@@ -1,29 +1,92 @@
-import { Header } from "@/components/landing/header"
-import { Hero } from "@/components/landing/hero"
-import { About } from "@/components/landing/about"
-import { Services } from "@/components/landing/services"
-import { TargetAudience } from "@/components/landing/target-audience"
-import { Differentiator } from "@/components/landing/differentiator"
-import { Benefits } from "@/components/landing/benefits"
-import { Testimonials } from "@/components/landing/testimonials"
-import { CTA } from "@/components/landing/cta"
-import { Footer } from "@/components/landing/footer"
+import { faqItems } from "@/components/landing/faq"
+import { LandingPageClient } from "@/components/landing/landing-page-client"
 
 export default function Home() {
+  const baseUrl = "https://zubuagency.com"
+
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ZUBU Agency",
+    url: baseUrl,
+    logo: `${baseUrl}/placeholder-logo2.png`,
+    sameAs: [
+      "https://www.linkedin.com/in/hernanstupniki/",
+      "https://www.instagram.com/zubudevagency/",
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        availableLanguage: ["Spanish", "English"],
+        areaServed: "AR",
+      },
+    ],
+  }
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "ZUBU Agency",
+    url: baseUrl,
+    image: `${baseUrl}/industrial-automation.png`,
+    description:
+      "Agencia de automatizacion de procesos, desarrollo de software a medida e inteligencia artificial para PyMEs y empresas.",
+    areaServed: ["Argentina", "Latam"],
+    serviceType: [
+      "Automatizacion de procesos",
+      "Desarrollo de software a medida",
+      "Integraciones con CRM y ERP",
+      "Agentes de inteligencia artificial",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Posadas",
+      addressRegion: "Misiones",
+      addressCountry: "AR",
+    },
+  }
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "ZUBU Agency",
+    url: baseUrl,
+    inLanguage: "es-AR",
+  }
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  }
+
   return (
     <div className="flex min-h-screen flex-col">
-      <Header />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <TargetAudience />
-        <Differentiator />
-        <Benefits />
-        <Testimonials />
-        <CTA />
-      </main>
-      <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <LandingPageClient />
     </div>
   )
 }

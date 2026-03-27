@@ -1,18 +1,56 @@
-const footerLinks = {
-  servicios: [
+import type { Language } from "@/components/landing/language"
+
+const footerLinksEs = {
+  services: [
     { label: "Automatización", href: "#servicios" },
     { label: "Software a medida", href: "#servicios" },
     { label: "Inteligencia artificial", href: "#servicios" },
     { label: "Integraciones", href: "#servicios" },
   ],
-  empresa: [
+  company: [
     { label: "Nosotros", href: "#nosotros" },
     { label: "Testimonios", href: "#testimonios" },
     { label: "Contacto", href: "#contacto" },
   ],
 }
 
-export function Footer() {
+const footerLinksEn = {
+  services: [
+    { label: "Automation", href: "#servicios" },
+    { label: "Custom software", href: "#servicios" },
+    { label: "Artificial intelligence", href: "#servicios" },
+    { label: "Integrations", href: "#servicios" },
+  ],
+  company: [
+    { label: "About", href: "#nosotros" },
+    { label: "Testimonials", href: "#testimonios" },
+    { label: "Contact", href: "#contacto" },
+  ],
+}
+
+const footerLinksPt = {
+  services: [
+    { label: "Automacao", href: "#servicios" },
+    { label: "Software sob medida", href: "#servicios" },
+    { label: "Inteligencia artificial", href: "#servicios" },
+    { label: "Integracoes", href: "#servicios" },
+  ],
+  company: [
+    { label: "Sobre nos", href: "#nosotros" },
+    { label: "Depoimentos", href: "#testimonios" },
+    { label: "Contato", href: "#contacto" },
+  ],
+}
+
+type FooterProps = {
+  language: Language
+}
+
+export function Footer({ language }: FooterProps) {
+  const isEn = language === "en"
+  const isPt = language === "pt"
+  const footerLinks = isEn ? footerLinksEn : isPt ? footerLinksPt : footerLinksEs
+
   return (
     <footer className="border-t border-border/40 bg-background">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
@@ -24,11 +62,15 @@ export function Footer() {
               <span className="text-sm font-medium text-muted-foreground">Agency</span>
             </a>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Agencia de automatización, desarrollo de software e inteligencia artificial. Ayudamos a empresas y pymes a transformar procesos manuales en sistemas inteligentes.
+              {isEn
+                ? "Automation, software development, and artificial intelligence agency. We help companies and SMEs transform manual processes into smart systems."
+                : isPt
+                  ? "Agencia de automacao, desenvolvimento de software e inteligencia artificial. Ajudamos empresas e PMEs a transformar processos manuais em sistemas inteligentes."
+                : "Agencia de automatización, desarrollo de software e inteligencia artificial. Ayudamos a empresas y PyMEs a transformar procesos manuales en sistemas inteligentes."}
             </p>
             <div className="mt-6 flex gap-4">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/hernanstupniki/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-foreground"
@@ -54,9 +96,9 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="text-sm font-semibold text-foreground">Servicios</h3>
+            <h3 className="text-sm font-semibold text-foreground">{isEn ? "Services" : isPt ? "Servicos" : "Servicios"}</h3>
             <ul className="mt-4 space-y-3">
-              {footerLinks.servicios.map((link) => (
+              {footerLinks.services.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
@@ -70,9 +112,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-foreground">Empresa</h3>
+            <h3 className="text-sm font-semibold text-foreground">{isEn ? "Company" : isPt ? "Empresa" : "Empresa"}</h3>
             <ul className="mt-4 space-y-3">
-              {footerLinks.empresa.map((link) => (
+              {footerLinks.company.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
@@ -88,7 +130,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border/40 pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} ZUBU Agency. Todos los derechos reservados.
+            © {new Date().getFullYear()} ZUBU Agency. {isEn ? "All rights reserved." : isPt ? "Todos os direitos reservados." : "Todos los derechos reservados."}
           </p>
         </div>
       </div>

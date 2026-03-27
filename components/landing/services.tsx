@@ -8,8 +8,9 @@ import {
   BarChart3, 
   Bot 
 } from "lucide-react"
+import type { Language } from "@/components/landing/language"
 
-const services = [
+const servicesEs = [
   {
     icon: MessageSquare,
     title: "Automatización de WhatsApp y atención al cliente",
@@ -52,16 +53,114 @@ const services = [
   },
 ]
 
-export function Services() {
+const servicesEn = [
+  {
+    icon: MessageSquare,
+    title: "WhatsApp automation and customer service",
+    description: "Automated replies, chatbots, and support flows that work 24/7.",
+  },
+  {
+    icon: Database,
+    title: "ERP/CRM development",
+    description: "Custom management systems to control customers, sales, and operations.",
+  },
+  {
+    icon: Link2,
+    title: "CRM, ERP, forms, and payment integrations",
+    description: "We connect your tools so data flows automatically.",
+  },
+  {
+    icon: FileText,
+    title: "Billing, booking, and document automation",
+    description: "Administrative processes that run on their own with no manual work.",
+  },
+  {
+    icon: Code2,
+    title: "Custom software development",
+    description: "Apps and systems designed specifically for your business.",
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Web systems, dashboards, and internal tools",
+    description: "Dashboards and tools to visualize and control your operation.",
+  },
+  {
+    icon: BarChart3,
+    title: "Reports, KPIs, and process analytics",
+    description: "Clear metrics to make better data-driven decisions.",
+  },
+  {
+    icon: Bot,
+    title: "AI agents and automated workflows",
+    description: "Artificial intelligence applied to repetitive and complex tasks.",
+  },
+]
+
+const servicesPt = [
+  {
+    icon: MessageSquare,
+    title: "Automacao de WhatsApp e atendimento ao cliente",
+    description: "Respostas automaticas, chatbots e fluxos de atendimento que funcionam 24 horas.",
+  },
+  {
+    icon: Database,
+    title: "Desenvolvimento de ERP/CRM",
+    description: "Sistemas de gestao personalizados para controlar clientes, vendas e operacoes.",
+  },
+  {
+    icon: Link2,
+    title: "Integracoes com CRM, ERP, formularios e pagamentos",
+    description: "Conectamos suas ferramentas para que os dados fluam automaticamente.",
+  },
+  {
+    icon: FileText,
+    title: "Automacao de cobrancas, reservas e documentos",
+    description: "Processos administrativos que funcionam sozinhos, sem intervencao manual.",
+  },
+  {
+    icon: Code2,
+    title: "Desenvolvimento de software sob medida",
+    description: "Aplicacoes e sistemas desenhados especificamente para o seu negocio.",
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Sistemas web, paines de gestao e ferramentas internas",
+    description: "Dashboards e ferramentas para visualizar e controlar sua operacao.",
+  },
+  {
+    icon: BarChart3,
+    title: "Relatorios, KPIs e analise de processos",
+    description: "Metricas claras para tomar melhores decisoes baseadas em dados.",
+  },
+  {
+    icon: Bot,
+    title: "Agentes de IA e fluxos de trabalho automaticos",
+    description: "Inteligencia artificial aplicada a tarefas repetitivas e complexas.",
+  },
+]
+
+type ServicesProps = {
+  language: Language
+}
+
+export function Services({ language }: ServicesProps) {
+  const isEn = language === "en"
+  const isPt = language === "pt"
+  const services = isEn ? servicesEn : isPt ? servicesPt : servicesEs
+
   return (
-    <section id="servicios" className="bg-background pt-16 pb-20 sm:pt-24 sm:pb-28">
+    <section id="servicios" className="bg-background pt-12 pb-14 sm:pt-16 sm:pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Nuestros servicios
+            {isEn ? "Our services" : isPt ? "Nossos servicos" : "Nuestros servicios"}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Soluciones integrales para digitalizar, automatizar y escalar tu negocio
+            {isEn
+              ? "End-to-end solutions to digitize, automate, and scale your business"
+              : isPt
+                ? "Solucoes completas para digitalizar, automatizar e escalar o seu negocio"
+              : "Soluciones integrales para digitalizar, automatizar y escalar tu negocio"}
           </p>
         </div>
 

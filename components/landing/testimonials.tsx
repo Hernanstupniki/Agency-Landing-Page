@@ -1,6 +1,7 @@
 import { Quote } from "lucide-react"
+import type { Language } from "@/components/landing/language"
 
-const testimonials = [
+const testimonialsEs = [
   {
     quote: "Logramos ordenar procesos que antes hacíamos manualmente y hoy ahorramos mucho tiempo.",
     author: "María González",
@@ -31,16 +32,90 @@ const testimonials = [
   },
 ]
 
-export function Testimonials() {
+const testimonialsEn = [
+  {
+    quote: "We managed to organize processes that used to be manual, and now we save a lot of time.",
+    author: "Maria Gonzalez",
+    role: "Operations Director",
+    company: "Distribuidora Norte",
+    metric: "-60% admin task time",
+  },
+  {
+    quote: "Automation improved our customer service and allowed us to respond much faster.",
+    author: "Carlos Fernandez",
+    role: "General Manager",
+    company: "Servicios Express",
+    metric: "Response in < 5 min",
+  },
+  {
+    quote: "Having a clearer and measurable system helped us make better business decisions.",
+    author: "Laura Martinez",
+    role: "CEO",
+    company: "TechStore Online",
+    metric: "+40% sales",
+  },
+  {
+    quote: "ZUBU understood our problem and proposed a practical, professional solution.",
+    author: "Roberto Sanchez",
+    role: "Founder",
+    company: "Inmobiliaria Sur",
+    metric: "100+ properties managed",
+  },
+]
+
+const testimonialsPt = [
+  {
+    quote: "Conseguimos organizar processos que antes eram manuais e hoje economizamos muito tempo.",
+    author: "Maria Gonzalez",
+    role: "Diretora de Operacoes",
+    company: "Distribuidora Norte",
+    metric: "-60% tempo em tarefas admin",
+  },
+  {
+    quote: "A automacao melhorou nosso atendimento e nos permitiu responder muito mais rapido.",
+    author: "Carlos Fernandez",
+    role: "Gerente Geral",
+    company: "Servicios Express",
+    metric: "Resposta em < 5 min",
+  },
+  {
+    quote: "Ter um sistema mais claro e mensuravel nos ajudou a tomar melhores decisoes para o negocio.",
+    author: "Laura Martinez",
+    role: "CEO",
+    company: "TechStore Online",
+    metric: "+40% em vendas",
+  },
+  {
+    quote: "A ZUBU entendeu nosso problema e propôs uma solucao pratica e profissional.",
+    author: "Roberto Sanchez",
+    role: "Fundador",
+    company: "Inmobiliaria Sur",
+    metric: "100+ imoveis gerenciados",
+  },
+]
+
+type TestimonialsProps = {
+  language: Language
+}
+
+export function Testimonials({ language }: TestimonialsProps) {
+  const isEn = language === "en"
+  const isPt = language === "pt"
+  const testimonials = isEn ? testimonialsEn : isPt ? testimonialsPt : testimonialsEs
+
   return (
-    <section id="testimonios" className="bg-background py-20 sm:py-28">
+    <section id="testimonios" className="bg-background py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Clientes que confiaron en ZUBU
+            {isEn ? "Clients who trusted ZUBU" : isPt ? "Clientes que confiaram na ZUBU" : "Clientes que confiaron en ZUBU"}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Nuestros clientes valoran la claridad, la eficiencia y el impacto real de cada solución implementada
+            {isEn
+              ? "Our clients value clarity, efficiency, and the real impact of every implemented solution"
+              : isPt
+                ? "Nossos clientes valorizam a clareza, a eficiencia e o impacto real de cada solucao implementada"
+              : "Nuestros clientes valoran la claridad, la eficiencia y el impacto real de cada solución implementada"}
           </p>
         </div>
 

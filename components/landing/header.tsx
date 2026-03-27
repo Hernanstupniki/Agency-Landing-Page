@@ -1,27 +1,95 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { EmailOptions } from "@/components/landing/email-options"
+import { ChevronDown, Menu, X } from "lucide-react"
+import type { Language } from "@/components/landing/language"
 
-const navLinks = [
-  { href: "#servicios", label: "Servicios" },
-  { href: "#nosotros", label: "Nosotros" },
-  { href: "#para-quien", label: "Para Quién" },
-  { href: "#testimonios", label: "Testimonios" },
-]
+const calendarBookingUrl =
+  process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_BOOKING_URL ??
+  "https://calendar.app.google/1xH4S97J5b2vuiBR6"
 
-export function Header() {
+type HeaderProps = {
+  language: Language
+  onLanguageChange: (language: Language) => void
+}
+
+export function Header({ language, onLanguageChange }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [contactModalOpen, setContactModalOpen] = useState(false)
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false)
+
+  const isEn = language === "en"
+  const isPt = language === "pt"
+
+  const navLinks = [
+    { href: "#servicios", label: isEn ? "Services" : isPt ? "Serviços" : "Servicios" },
+    { href: "#nosotros", label: isEn ? "About" : isPt ? "Sobre nós" : "Nosotros" },
+    { href: "#para-quien", label: isEn ? "Who It Is For" : isPt ? "Para quem é" : "Para Quién" },
+    { href: "#testimonios", label: isEn ? "Testimonials" : isPt ? "Depoimentos" : "Testimonios" },
+    { href: "#faq", label: "FAQ" },
+  ]
+
+  const languageLabel = isEn ? "English" : isPt ? "Português" : "Español"
+  const contactLabel = isEn ? "Contact us" : isPt ? "Fale conosco" : "Contactanos"
+  const openMenuLabel = isEn ? "Open menu" : isPt ? "Abrir menu" : "Abrir menú"
+  const closeMenuLabel = isEn ? "Close menu" : isPt ? "Fechar menu" : "Cerrar menú"
+  const selectLanguageLabel = isEn ? "Select language" : isPt ? "Selecionar idioma" : "Seleccionar idioma"
+  const languageTitle = isEn ? "Language" : isPt ? "Idioma" : "Idioma"
+  const modalTitle = isEn ? "Contact us" : isPt ? "Fale conosco" : "Contactanos"
+  const modalBody = isEn
+    ? "Book a meeting through Google Calendar and we will coordinate via Google Meet."
+    : isPt
+      ? "Agende uma reuniao pelo Google Calendar e alinhamos tudo pelo Google Meet."
+      : "Agenda una reunion por Google Calendar y coordinamos por Google Meet."
+  const calendarLabel = isEn ? "Book a meeting" : isPt ? "Quero agendar uma reuniao" : "Quiero agendar una reunion"
+  const whatsappMessage = isEn
+    ? "https://wa.me/5493764502803?text=Hi%20ZUBU,%20I%20want%20to%20automate%20my%20business"
+    : isPt
+      ? "https://wa.me/5493764502803?text=Ola%20ZUBU,%20quero%20automatizar%20meu%20negocio"
+      : "https://wa.me/5493764502803?text=Hola%20ZUBU,%20quiero%20automatizar%20mi%20negocio"
+
+  const FlagEs = () => (
+    <svg className="h-3.5 w-5 rounded-sm" viewBox="0 0 24 16" aria-hidden="true">
+      <rect width="24" height="16" fill="#AA151B" />
+      <rect y="4" width="24" height="8" fill="#F1BF00" />
+    </svg>
+  )
+
+  const FlagUs = () => (
+    <svg className="h-3.5 w-5 rounded-sm" viewBox="0 0 24 16" aria-hidden="true">
+      <rect width="24" height="16" fill="#FFFFFF" />
+      <rect width="24" height="2" y="0" fill="#B22234" />
+      <rect width="24" height="2" y="4" fill="#B22234" />
+      <rect width="24" height="2" y="8" fill="#B22234" />
+      <rect width="24" height="2" y="12" fill="#B22234" />
+      <rect width="10.5" height="8.5" fill="#3C3B6E" />
+    </svg>
+  )
+
+  const FlagBr = () => (
+    <svg className="h-3.5 w-5 rounded-sm" viewBox="0 0 24 16" aria-hidden="true">
+      <rect width="24" height="16" fill="#009C3B" />
+      <polygon points="12,2 21,8 12,14 3,8" fill="#FFDF00" />
+      <circle cx="12" cy="8" r="3" fill="#002776" />
+    </svg>
+  )
 
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="relative mx-auto grid h-16 max-w-7xl grid-cols-[auto_1fr_auto] items-center px-4 sm:px-6 lg:px-8 md:grid-cols-[1fr_auto_1fr]">
-          <a href="/" className="flex items-center gap-2 md:justify-self-start">
-            <span className="text-xl font-bold tracking-tight text-foreground">ZUBU</span>
-            <span className="text-sm font-medium text-muted-foreground">Agency</span>
+        <div className="relative mx-auto grid h-14 max-w-7xl grid-cols-[auto_1fr_auto] items-center px-4 sm:px-6 lg:px-8 md:grid-cols-[1fr_auto_1fr]">
+          <a href="/" className="ml-2 flex items-center sm:ml-3 md:ml-4 md:justify-self-start" aria-label="Zubu Agency">
+            <Image
+              src="/placeholder-logo.png"
+              alt="Zubu"
+              width={180}
+              height={64}
+              priority
+              className="h-5 w-auto sm:h-6"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -37,13 +105,65 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden items-center md:flex md:justify-self-end">
+          <div className="hidden items-center gap-2 md:flex md:justify-self-end">
+            <div className="relative">
+              <button
+                type="button"
+                className="inline-flex h-9 items-center gap-2 rounded-md border border-border bg-background px-3 text-sm text-foreground"
+                onClick={() => setLanguageMenuOpen((prev) => !prev)}
+                aria-haspopup="menu"
+                aria-expanded={languageMenuOpen}
+                aria-label={selectLanguageLabel}
+              >
+                {language === "es" ? <FlagEs /> : language === "en" ? <FlagUs /> : <FlagBr />}
+                <span>{languageLabel}</span>
+                <ChevronDown className="h-4 w-4 text-muted-foreground" />
+              </button>
+
+              {languageMenuOpen && (
+                <div className="absolute right-0 top-11 z-50 w-40 rounded-md border border-border bg-background p-1 shadow-md">
+                  <button
+                    type="button"
+                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm hover:bg-muted"
+                    onClick={() => {
+                      onLanguageChange("es")
+                      setLanguageMenuOpen(false)
+                    }}
+                  >
+                    <FlagEs />
+                    Español
+                  </button>
+                  <button
+                    type="button"
+                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm hover:bg-muted"
+                    onClick={() => {
+                      onLanguageChange("en")
+                      setLanguageMenuOpen(false)
+                    }}
+                  >
+                    <FlagUs />
+                    English
+                  </button>
+                  <button
+                    type="button"
+                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm hover:bg-muted"
+                    onClick={() => {
+                      onLanguageChange("pt")
+                      setLanguageMenuOpen(false)
+                    }}
+                  >
+                    <FlagBr />
+                    Português
+                  </button>
+                </div>
+              )}
+            </div>
             <Button
               size="sm"
               className="bg-black text-white hover:bg-black/85"
               onClick={() => setContactModalOpen(true)}
             >
-              Contactanos
+              {contactLabel}
             </Button>
           </div>
 
@@ -51,7 +171,7 @@ export function Header() {
           <button
             className="ml-auto inline-flex items-center justify-center rounded-md p-2 text-muted-foreground md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-label={mobileMenuOpen ? closeMenuLabel : openMenuLabel}
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -72,6 +192,47 @@ export function Header() {
                 </a>
               ))}
               <div className="mt-4 space-y-2">
+                <div className="rounded-md border border-border p-2">
+                  <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">{languageTitle}</p>
+                  <div className="grid grid-cols-3 gap-2">
+                    <button
+                      type="button"
+                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
+                        language === "es"
+                          ? "border-foreground bg-muted text-foreground"
+                          : "border-border bg-background text-muted-foreground"
+                      }`}
+                      onClick={() => onLanguageChange("es")}
+                    >
+                      <FlagEs />
+                      ES
+                    </button>
+                    <button
+                      type="button"
+                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
+                        language === "en"
+                          ? "border-foreground bg-muted text-foreground"
+                          : "border-border bg-background text-muted-foreground"
+                      }`}
+                      onClick={() => onLanguageChange("en")}
+                    >
+                      <FlagUs />
+                      EN
+                    </button>
+                    <button
+                      type="button"
+                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
+                        language === "pt"
+                          ? "border-foreground bg-muted text-foreground"
+                          : "border-border bg-background text-muted-foreground"
+                      }`}
+                      onClick={() => onLanguageChange("pt")}
+                    >
+                      <FlagBr />
+                      PT
+                    </button>
+                  </div>
+                </div>
                 <Button
                   className="w-full bg-black text-white hover:bg-black/85"
                   onClick={() => {
@@ -79,7 +240,7 @@ export function Header() {
                     setContactModalOpen(true)
                   }}
                 >
-                  Contactanos
+                  {contactLabel}
                 </Button>
               </div>
             </nav>
@@ -97,20 +258,34 @@ export function Header() {
             onClick={(event) => event.stopPropagation()}
           >
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-base font-semibold">Contactanos</h3>
+              <h3 className="text-base font-semibold">{modalTitle}</h3>
               <button
                 className="rounded-md p-1 text-black/70 transition-colors hover:bg-black/10 hover:text-black"
                 onClick={() => setContactModalOpen(false)}
-                aria-label="Cerrar"
+                aria-label={isEn ? "Close" : isPt ? "Fechar" : "Cerrar"}
               >
                 <X className="h-4 w-4" />
               </button>
             </div>
 
+            <p className="mb-3 text-sm text-black/70">
+              {modalBody}
+            </p>
+
             <div className="space-y-2">
+              <Button asChild className="w-full bg-black text-white hover:bg-black/85">
+                <a
+                  href={calendarBookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setContactModalOpen(false)}
+                >
+                  {calendarLabel}
+                </a>
+              </Button>
               <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#1ebe5b]">
                 <a
-                  href="https://wa.me/5493764502803?text=Hola%20ZUBU,%20quiero%20automatizar%20mi%20negocio"
+                  href={whatsappMessage}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setContactModalOpen(false)}
@@ -118,16 +293,7 @@ export function Header() {
                   WhatsApp
                 </a>
               </Button>
-              <Button asChild variant="outline" className="w-full border-black/20 text-black hover:bg-black/5">
-                <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@zubuagency.com&su=Consulta%20desde%20la%20web"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setContactModalOpen(false)}
-                >
-                  Mail
-                </a>
-              </Button>
+              <EmailOptions language={language} onOptionSelected={() => setContactModalOpen(false)} />
             </div>
           </div>
         </div>

@@ -6,11 +6,12 @@ import {
   Home, 
   Briefcase 
 } from "lucide-react"
+import type { Language } from "@/components/landing/language"
 
-const audiences = [
+const audiencesEs = [
   {
     icon: Building2,
-    title: "Pymes",
+    title: "PyMEs",
     description: "Empresas que buscan crecer sin aumentar costos operativos",
   },
   {
@@ -40,16 +41,94 @@ const audiences = [
   },
 ]
 
-export function TargetAudience() {
+const audiencesEn = [
+  {
+    icon: Building2,
+    title: "SMEs",
+    description: "Companies that want to grow without increasing operating costs",
+  },
+  {
+    icon: Briefcase,
+    title: "Service companies",
+    description: "Businesses that need to optimize customer care and follow-up",
+  },
+  {
+    icon: Utensils,
+    title: "Restaurants and food businesses",
+    description: "Businesses that want to automate orders, bookings, and delivery",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-commerce",
+    description: "Online stores that need to integrate sales, stock, and shipping",
+  },
+  {
+    icon: Home,
+    title: "Real estate",
+    description: "Agencies looking to automate property and lead follow-up",
+  },
+  {
+    icon: Store,
+    title: "Firms and businesses",
+    description: "Professionals who need to digitize processes and gain more control",
+  },
+]
+
+const audiencesPt = [
+  {
+    icon: Building2,
+    title: "PMEs",
+    description: "Empresas que buscam crescer sem aumentar custos operacionais",
+  },
+  {
+    icon: Briefcase,
+    title: "Empresas de servicos",
+    description: "Negocios que precisam otimizar atendimento e acompanhamento de clientes",
+  },
+  {
+    icon: Utensils,
+    title: "Restaurantes e gastronomia",
+    description: "Negocios que querem automatizar pedidos, reservas e delivery",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-commerce",
+    description: "Lojas online que precisam integrar vendas, estoque e envios",
+  },
+  {
+    icon: Home,
+    title: "Imobiliarias",
+    description: "Agencias que buscam automatizar acompanhamento de imoveis e clientes",
+  },
+  {
+    icon: Store,
+    title: "Escritorios e negocios",
+    description: "Profissionais que precisam digitalizar processos e ter mais controle",
+  },
+]
+
+type TargetAudienceProps = {
+  language: Language
+}
+
+export function TargetAudience({ language }: TargetAudienceProps) {
+  const isEn = language === "en"
+  const isPt = language === "pt"
+  const audiences = isEn ? audiencesEn : isPt ? audiencesPt : audiencesEs
+
   return (
-    <section id="para-quien" className="bg-muted/30 py-20 sm:py-28">
+    <section id="para-quien" className="bg-muted/30 py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            ¿Para quién es ZUBU?
+            {isEn ? "Who is ZUBU for?" : isPt ? "Para quem e a ZUBU?" : "¿Para quién es ZUBU?"}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Trabajamos con negocios que necesitan digitalizar procesos, responder más rápido y tener más control
+            {isEn
+              ? "We work with businesses that need to digitize processes, respond faster, and gain more control"
+              : isPt
+                ? "Trabalhamos com negocios que precisam digitalizar processos, responder mais rapido e ter mais controle"
+              : "Trabajamos con negocios que necesitan digitalizar procesos, responder más rápido y tener más control"}
           </p>
         </div>
 
