@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://zubuagency.com'),
   applicationName: 'ZUBU Agency',
   manifest: '/site.webmanifest',
-  title: 'ZUBU Agency | Automatización de Procesos, Software a Medida e IA para Empresas',
-  description: 'Ayudamos a negocios y PyMEs a ahorrar tiempo, reducir errores y aumentar ventas mediante automatizaciones, desarrollo de software a medida, bots e inteligencia artificial. Solicita tu diagnóstico gratuito.',
+  title: 'ZUBU Agency en Posadas, Misiones | Automatización, Software e IA para Empresas',
+  description: 'Agencia de automatización y desarrollo de software en Posadas, Misiones, Argentina. Ayudamos a PyMEs y empresas a ahorrar tiempo, reducir errores y aumentar ventas con sistemas e inteligencia artificial.',
   keywords: [
     'automatizacion de procesos',
     'desarrollo de software a medida',
@@ -25,6 +25,10 @@ export const metadata: Metadata = {
     'crm',
     'erp',
     'agencia de automatizacion en argentina',
+    'agencia de software en posadas',
+    'automatizacion en posadas misiones',
+    'desarrollo web en misiones argentina',
+    'inteligencia artificial en posadas',
   ],
   authors: [{ name: 'ZUBU Agency' }],
   creator: 'ZUBU Agency',
@@ -32,10 +36,13 @@ export const metadata: Metadata = {
   category: 'technology',
   alternates: {
     canonical: '/',
+    languages: {
+      'es-AR': '/',
+    },
   },
   openGraph: {
-    title: 'ZUBU Agency | Automatización, Software e IA para Empresas',
-    description: 'Transformamos procesos manuales en sistemas inteligentes. Automatización, desarrollo de software a medida e inteligencia artificial para empresas y PyMEs.',
+    title: 'ZUBU Agency en Posadas, Misiones | Automatización, Software e IA',
+    description: 'Agencia en Posadas, Misiones, Argentina. Transformamos procesos manuales en sistemas inteligentes para PyMEs y empresas.',
     url: 'https://zubuagency.com/',
     siteName: 'ZUBU Agency',
     type: 'website',
@@ -51,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ZUBU Agency | Automatización, Software e IA para Empresas',
-    description: 'Transformamos procesos manuales en sistemas inteligentes. Automatización, desarrollo de software a medida e inteligencia artificial para empresas y PyMEs.',
+    title: 'ZUBU Agency en Posadas, Misiones | Automatización, Software e IA',
+    description: 'Agencia en Posadas, Misiones, Argentina. Automatización y software a medida para empresas y PyMEs.',
     images: ['/industrial-automation.png'],
   },
   robots: {
