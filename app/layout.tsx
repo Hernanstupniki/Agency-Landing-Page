@@ -11,6 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://zubuagency.com'),
   applicationName: 'ZUBU Agency',
+  manifest: '/site.webmanifest',
   title: 'ZUBU Agency | Automatización de Procesos, Software a Medida e IA para Empresas',
   description: 'Ayudamos a negocios y PyMEs a ahorrar tiempo, reducir errores y aumentar ventas mediante automatizaciones, desarrollo de software a medida, bots e inteligencia artificial. Solicita tu diagnóstico gratuito.',
   keywords: [
@@ -67,9 +68,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [{ url: '/zubu-logo-favicon.png?v=2', sizes: '32x32', type: 'image/png' }],
-    shortcut: [{ url: '/zubu-logo-favicon.png?v=2', sizes: '32x32', type: 'image/png' }],
-    apple: [{ url: '/apple-icon.png' }],
+    icon: [
+      { url: '/zubu-logo-favicon.png', sizes: '48x48', type: 'image/png' },
+      { url: '/zubu-logo-favicon.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: [{ url: '/zubu-logo-favicon.png', type: 'image/png' }],
+    apple: [{ url: '/zubu-logo-favicon.png', sizes: '180x180', type: 'image/png' }],
   },
 }
 
