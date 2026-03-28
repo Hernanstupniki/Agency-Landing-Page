@@ -64,13 +64,13 @@ export function CTA({ language }: CTAProps) {
           onClick={() => setContactModalOpen(false)}
         >
           <div
-            className="w-full max-w-xs rounded-2xl bg-white p-5 text-black shadow-2xl"
+            className="w-full max-w-sm rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-2xl sm:p-7"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-base font-semibold">{isEn ? "Contact us" : isPt ? "Fale conosco" : "Contactanos"}</h3>
+            <div className="mb-5 flex items-center justify-between">
+              <h3 className="text-lg font-semibold">{isEn ? "Contact us" : isPt ? "Fale conosco" : "Contactanos"}</h3>
               <button
-                className="rounded-md p-1 text-black/70 transition-colors hover:bg-black/10 hover:text-black"
+                className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 onClick={() => setContactModalOpen(false)}
                 aria-label={isEn ? "Close" : isPt ? "Fechar" : "Cerrar"}
               >
@@ -78,7 +78,7 @@ export function CTA({ language }: CTAProps) {
               </button>
             </div>
 
-            <p className="mb-3 text-sm text-black/70">
+            <p className="mb-4 text-sm text-muted-foreground">
               {isEn
                 ? "Book a meeting through Google Calendar and we will coordinate via Google Meet."
                 : isPt
@@ -86,15 +86,15 @@ export function CTA({ language }: CTAProps) {
                 : "Agenda una reunion por Google Calendar y coordinamos por Google Meet."}
             </p>
 
-            <div className="space-y-2">
-              <Button asChild className="w-full bg-black text-white hover:bg-black/85">
+            <div className="space-y-3">
+              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <a
                   href={calendarBookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setContactModalOpen(false)}
                 >
-                  {isEn ? "Book a meeting" : isPt ? "Quero agendar uma reuniao" : "Quiero agendar una reunion"}
+                  {isEn ? "Book a meeting" : isPt ? "Quero agendar uma reuniao" : "Agendar una reunion"}
                 </a>
               </Button>
               <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#1ebe5b]">

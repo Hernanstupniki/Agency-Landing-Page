@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { Language } from "@/components/landing/language"
 
 const footerLinksEs = {
@@ -58,8 +59,21 @@ export function Footer({ language }: FooterProps) {
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="/" className="flex items-center gap-2">
-              <span className="text-xl font-bold tracking-tight text-foreground">ZUBU</span>
-              <span className="text-sm font-medium text-muted-foreground">Agency</span>
+              <Image
+                src="/placeholder-logo.png"
+                alt="Zubu"
+                width={180}
+                height={64}
+                className="h-6 w-auto dark:hidden"
+              />
+              <Image
+                src="/placeholder-logo-dark.png"
+                alt="Zubu"
+                width={180}
+                height={64}
+                className="hidden h-6 w-auto dark:block"
+              />
+              <span className="translate-y-[1px] text-sm font-medium text-muted-foreground">Agency</span>
             </a>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
               {isEn

@@ -1,10 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { EmailOptions } from "@/components/landing/email-options"
-import { ChevronDown, Menu, X } from "lucide-react"
+import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react"
+import { useTheme } from "next-themes"
 import type { Language } from "@/components/landing/language"
 
 const calendarBookingUrl =
@@ -20,9 +21,16 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [contactModalOpen, setContactModalOpen] = useState(false)
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const isEn = language === "en"
   const isPt = language === "pt"
+  const isDarkMode = mounted && resolvedTheme === "dark"
 
   const navLinks = [
     { href: "#servicios", label: isEn ? "Services" : isPt ? "Serviços" : "Servicios" },
@@ -37,6 +45,17 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
   const openMenuLabel = isEn ? "Open menu" : isPt ? "Abrir menu" : "Abrir menú"
   const closeMenuLabel = isEn ? "Close menu" : isPt ? "Fechar menu" : "Cerrar menú"
   const selectLanguageLabel = isEn ? "Select language" : isPt ? "Selecionar idioma" : "Seleccionar idioma"
+  const toggleThemeLabel = isDarkMode
+    ? isEn
+      ? "Switch to light mode"
+      : isPt
+        ? "Mudar para modo claro"
+        : "Cambiar a modo claro"
+    : isEn
+      ? "Switch to dark mode"
+      : isPt
+        ? "Mudar para modo escuro"
+        : "Cambiar a modo oscuro"
   const languageTitle = isEn ? "Language" : isPt ? "Idioma" : "Idioma"
   const modalTitle = isEn ? "Contact us" : isPt ? "Fale conosco" : "Contactanos"
   const modalBody = isEn
@@ -44,7 +63,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
     : isPt
       ? "Agende uma reuniao pelo Google Calendar e alinhamos tudo pelo Google Meet."
       : "Agenda una reunion por Google Calendar y coordinamos por Google Meet."
-  const calendarLabel = isEn ? "Book a meeting" : isPt ? "Quero agendar uma reuniao" : "Quiero agendar una reunion"
+  const calendarLabel = isEn ? "Book a meeting" : isPt ? "Quero agendar uma reuniao" : "Agendar una reunion"
   const whatsappMessage = isEn
     ? "https://wa.me/5493764502803?text=Hi%20ZUBU,%20I%20want%20to%20automate%20my%20business"
     : isPt
@@ -77,19 +96,32 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
     </svg>
   )
 
+  const toggleTheme = () => {
+    setTheme(isDarkMode ? "light" : "dark")
+  }
+
   return (
     <>
       <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="relative mx-auto grid h-14 max-w-7xl grid-cols-[auto_1fr_auto] items-center px-4 sm:px-6 lg:px-8 md:grid-cols-[1fr_auto_1fr]">
-          <a href="/" className="ml-2 flex items-center sm:ml-3 md:ml-4 md:justify-self-start" aria-label="Zubu Agency">
+          <a href="/" className="ml-2 flex items-center gap-2 sm:ml-3 md:ml-4 md:justify-self-start" aria-label="Zubu Agency">
             <Image
               src="/placeholder-logo.png"
               alt="Zubu"
               width={180}
               height={64}
               priority
-              className="h-5 w-auto sm:h-6"
+              className="h-5 w-auto dark:hidden sm:h-6"
             />
+            <Image
+              src="/placeholder-logo-dark.png"
+              alt="Zubu"
+              width={180}
+              height={64}
+              priority
+              className="hidden h-5 w-auto dark:block sm:h-6"
+            />
+            <span className="translate-y-[1px] text-xs font-medium tracking-wide text-muted-foreground sm:text-sm">Agency</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -106,6 +138,15 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           </nav>
 
           <div className="hidden items-center gap-2 md:flex md:justify-self-end">
+            <button
+              type="button"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-muted"
+              onClick={toggleTheme}
+              aria-label={toggleThemeLabel}
+              title={toggleThemeLabel}
+            >
+              {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
             <div className="relative">
               <button
                 type="button"
@@ -160,7 +201,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             </div>
             <Button
               size="sm"
-              className="bg-black text-white hover:bg-black/85"
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
               onClick={() => setContactModalOpen(true)}
             >
               {contactLabel}
@@ -168,13 +209,24 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="ml-auto inline-flex items-center justify-center rounded-md p-2 text-muted-foreground md:hidden"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label={mobileMenuOpen ? closeMenuLabel : openMenuLabel}
-          >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="ml-auto flex items-center gap-1 md:hidden">
+            <button
+              type="button"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-muted"
+              onClick={toggleTheme}
+              aria-label={toggleThemeLabel}
+              title={toggleThemeLabel}
+            >
+              {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+            <button
+              className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? closeMenuLabel : openMenuLabel}
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}
@@ -234,7 +286,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   </div>
                 </div>
                 <Button
-                  className="w-full bg-black text-white hover:bg-black/85"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                   onClick={() => {
                     setMobileMenuOpen(false)
                     setContactModalOpen(true)
@@ -254,13 +306,13 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           onClick={() => setContactModalOpen(false)}
         >
           <div
-            className="w-full max-w-xs rounded-2xl bg-white p-5 text-black shadow-2xl"
+            className="w-full max-w-sm rounded-2xl border border-border bg-card p-6 text-card-foreground shadow-2xl sm:p-7"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="mb-4 flex items-center justify-between">
-              <h3 className="text-base font-semibold">{modalTitle}</h3>
+            <div className="mb-5 flex items-center justify-between">
+              <h3 className="text-lg font-semibold">{modalTitle}</h3>
               <button
-                className="rounded-md p-1 text-black/70 transition-colors hover:bg-black/10 hover:text-black"
+                className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 onClick={() => setContactModalOpen(false)}
                 aria-label={isEn ? "Close" : isPt ? "Fechar" : "Cerrar"}
               >
@@ -268,12 +320,12 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               </button>
             </div>
 
-            <p className="mb-3 text-sm text-black/70">
+            <p className="mb-4 text-sm text-muted-foreground">
               {modalBody}
             </p>
 
-            <div className="space-y-2">
-              <Button asChild className="w-full bg-black text-white hover:bg-black/85">
+            <div className="space-y-3">
+              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <a
                   href={calendarBookingUrl}
                   target="_blank"

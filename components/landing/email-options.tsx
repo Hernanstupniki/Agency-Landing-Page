@@ -31,15 +31,15 @@ export function EmailOptions({ language, onOptionSelected }: EmailOptionsProps) 
       <Button
         type="button"
         variant="outline"
-        className="w-full border-black/20 text-black hover:bg-black/5"
+        className="w-full border-border text-foreground hover:bg-muted"
         onClick={() => setOpen((prev) => !prev)}
       >
         {isEn ? "Email" : isPt ? "E-mail" : "Mail"}
       </Button>
 
       {open && (
-        <div className="mt-2 rounded-xl border border-black/10 bg-white p-2 shadow-sm">
-          <p className="mb-2 px-2 text-xs font-medium uppercase tracking-wide text-black/60">
+        <div className="mt-2 rounded-xl border border-border bg-popover p-2 text-popover-foreground shadow-sm">
+          <p className="mb-2 px-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
             {isEn ? "Choose how to send" : isPt ? "Escolha como enviar" : "Elegi como enviar"}
           </p>
 
@@ -48,7 +48,7 @@ export function EmailOptions({ language, onOptionSelected }: EmailOptionsProps) 
               href={gmailUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm text-black transition-colors hover:bg-black/5"
+              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm text-foreground transition-colors hover:bg-muted"
               onClick={() => {
                 onOptionSelected?.()
                 setOpen(false)
@@ -64,7 +64,7 @@ export function EmailOptions({ language, onOptionSelected }: EmailOptionsProps) 
               href={outlookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm text-black transition-colors hover:bg-black/5"
+              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm text-foreground transition-colors hover:bg-muted"
               onClick={() => {
                 onOptionSelected?.()
                 setOpen(false)
@@ -78,7 +78,7 @@ export function EmailOptions({ language, onOptionSelected }: EmailOptionsProps) 
 
             <a
               href={mailtoUrl}
-              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm text-black transition-colors hover:bg-black/5"
+              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm text-foreground transition-colors hover:bg-muted"
               onClick={() => {
                 onOptionSelected?.()
                 setOpen(false)
