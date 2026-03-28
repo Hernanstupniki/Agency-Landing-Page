@@ -1,6 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 import type { Language } from "@/components/landing/language"
 import { Header } from "@/components/landing/header"
 import { Hero } from "@/components/landing/hero"
@@ -15,6 +17,8 @@ import { CTA } from "@/components/landing/cta"
 import { Footer } from "@/components/landing/footer"
 
 const LANGUAGE_STORAGE_KEY = "zubu-language"
+
+gsap.registerPlugin(useGSAP)
 
 function isSupportedLanguage(value: string): value is Language {
   return value === "es" || value === "en" || value === "pt"
@@ -48,6 +52,124 @@ function detectBrowserLanguage(): Language {
 
 export function LandingPageClient() {
   const [language, setLanguage] = useState<Language>("es")
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(
+    (_context, contextSafe) => {
+      const mm = gsap.matchMedia()
+
+      mm.add(
+        {
+          reduceMotion: "(prefers-reduced-motion: reduce)",
+        },
+        (media) => {
+          const buttons = gsap.utils.toArray<HTMLElement>("[data-slot='button']")
+
+          if (!buttons.length) {
+            return
+          }
+
+          const { reduceMotion } = media.conditions as { reduceMotion: boolean }
+
+          if (!reduceMotion) {
+            gsap.from(buttons, {
+              autoAlpha: 0,
+              y: 10,
+              duration: 0.45,
+              ease: "power2.out",
+              stagger: 0.04,
+              clearProps: "opacity,visibility,transform",
+            })
+          }
+
+          const handleEnter = contextSafe((event: Event) => {
+            if (reduceMotion) {
+              return
+            }
+
+            const target = event.currentTarget as HTMLElement
+            gsap.to(target, {
+              scale: 1.04,
+              y: -1,
+              duration: 0.2,
+              ease: "power2.out",
+              overwrite: "auto",
+            })
+          })
+
+          const handleLeave = contextSafe((event: Event) => {
+            const target = event.currentTarget as HTMLElement
+            gsap.to(target, {
+              scale: 1,
+              y: 0,
+              duration: reduceMotion ? 0 : 0.2,
+              ease: "power2.out",
+              overwrite: "auto",
+            })
+          })
+
+          const handlePress = contextSafe((event: Event) => {
+            if (reduceMotion) {
+              return
+            }
+
+            const target = event.currentTarget as HTMLElement
+            gsap.to(target, {
+              scale: 0.98,
+              y: 0,
+              duration: 0.12,
+              ease: "power1.out",
+              overwrite: "auto",
+            })
+          })
+
+          const handleRelease = contextSafe((event: Event) => {
+            if (reduceMotion) {
+              return
+            }
+
+            const target = event.currentTarget as HTMLElement
+            gsap.to(target, {
+              scale: 1.04,
+              y: -1,
+              duration: 0.12,
+              ease: "power2.out",
+              overwrite: "auto",
+            })
+          })
+
+          for (const button of buttons) {
+            button.style.willChange = "transform"
+            button.addEventListener("pointerenter", handleEnter)
+            button.addEventListener("pointerleave", handleLeave)
+            button.addEventListener("focus", handleEnter)
+            button.addEventListener("blur", handleLeave)
+            button.addEventListener("pointerdown", handlePress)
+            button.addEventListener("pointerup", handleRelease)
+            button.addEventListener("pointercancel", handleLeave)
+          }
+
+          return () => {
+            for (const button of buttons) {
+              button.removeEventListener("pointerenter", handleEnter)
+              button.removeEventListener("pointerleave", handleLeave)
+              button.removeEventListener("focus", handleEnter)
+              button.removeEventListener("blur", handleLeave)
+              button.removeEventListener("pointerdown", handlePress)
+              button.removeEventListener("pointerup", handleRelease)
+              button.removeEventListener("pointercancel", handleLeave)
+              button.style.willChange = ""
+            }
+          }
+        },
+      )
+
+      return () => {
+        mm.revert()
+      }
+    },
+    { scope: containerRef },
+  )
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -73,7 +195,7 @@ export function LandingPageClient() {
   }
 
   return (
-    <>
+    <div ref={containerRef}>
       <Header language={language} onLanguageChange={handleLanguageChange} />
       <main>
         <Hero language={language} />
@@ -87,6 +209,6 @@ export function LandingPageClient() {
         <CTA language={language} />
       </main>
       <Footer language={language} />
-    </>
+    </div>
   )
 }
