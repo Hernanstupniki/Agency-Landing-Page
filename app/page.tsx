@@ -3,13 +3,16 @@ import { LandingPageClient } from "@/components/landing/landing-page-client"
 
 export default function Home() {
   const baseUrl = "https://zubuagency.com"
+  const organizationId = `${baseUrl}/#organization`
+  const localBusinessId = `${baseUrl}/#localbusiness`
 
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": organizationId,
     name: "ZUBU Agency",
     url: baseUrl,
-    logo: `${baseUrl}/placeholder-logo2.png`,
+    logo: `${baseUrl}/zubu-logo-favicon.png`,
     sameAs: [
       "https://www.linkedin.com/in/hernanstupniki/",
       "https://www.instagram.com/zubudevagency/",
@@ -27,12 +30,16 @@ export default function Home() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": `${baseUrl}/#service`,
     name: "ZUBU Agency",
+    provider: {
+      "@id": organizationId,
+    },
     url: baseUrl,
     image: `${baseUrl}/industrial-automation.png`,
     description:
-      "Agencia de automatizacion de procesos, desarrollo de software a medida e inteligencia artificial para PyMEs y empresas.",
-    areaServed: ["Argentina", "Latam"],
+      "Agencia de automatizacion de procesos, desarrollo de software a medida e inteligencia artificial en Posadas, Misiones, Argentina.",
+    areaServed: ["Posadas", "Misiones", "Argentina"],
     serviceType: [
       "Automatizacion de procesos",
       "Desarrollo de software a medida",
@@ -47,12 +54,51 @@ export default function Home() {
     },
   }
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": localBusinessId,
+    name: "ZUBU Agency",
+    url: baseUrl,
+    image: `${baseUrl}/zubu-logo-favicon.png`,
+    logo: `${baseUrl}/zubu-logo-favicon.png`,
+    description:
+      "Agencia de automatizacion y desarrollo de software para empresas en Posadas, Misiones, Argentina.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Posadas",
+      addressRegion: "Misiones",
+      addressCountry: "AR",
+    },
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Posadas",
+      },
+      {
+        "@type": "AdministrativeArea",
+        name: "Misiones",
+      },
+      {
+        "@type": "Country",
+        name: "Argentina",
+      },
+    ],
+    sameAs: [
+      "https://www.linkedin.com/in/hernanstupniki/",
+      "https://www.instagram.com/zubudevagency/",
+    ],
+  }
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "ZUBU Agency",
     url: baseUrl,
     inLanguage: "es-AR",
+    publisher: {
+      "@id": organizationId,
+    },
   }
 
   const faqSchema = {
@@ -77,6 +123,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <script
         type="application/ld+json"

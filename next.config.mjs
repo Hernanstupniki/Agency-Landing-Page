@@ -6,6 +6,16 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.zubuagency.com' }],
+        destination: 'https://zubuagency.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     const isDev = process.env.NODE_ENV !== 'production'
     const scriptSrc = isDev
