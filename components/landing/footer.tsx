@@ -64,14 +64,14 @@ export function Footer({ language }: FooterProps) {
                 alt="Zubu"
                 width={180}
                 height={64}
-                className="h-10 w-auto dark:hidden"
+                className="h-6 w-auto dark:hidden"
               />
               <Image
                 src="/placeholder-logo-dark.png"
                 alt="Zubu"
                 width={180}
                 height={64}
-                className="hidden h-10 w-auto dark:block"
+                className="hidden h-6 w-auto dark:block"
               />
               <span className="translate-y-[1px] text-sm font-medium text-muted-foreground">Agency</span>
             </a>

@@ -111,7 +111,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               width={180}
               height={64}
               priority
-              className="h-8 w-auto dark:hidden sm:h-10"
+              className="h-5 w-auto dark:hidden sm:h-6"
             />
             <Image
               src="/placeholder-logo-dark.png"
@@ -119,7 +119,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               width={180}
               height={64}
               priority
-              className="hidden h-8 w-auto dark:block sm:h-10"
+              className="hidden h-5 w-auto dark:block sm:h-6"
             />
             <span className="translate-y-[1px] text-xs font-medium tracking-wide text-muted-foreground sm:text-sm">Agency</span>
           </a>
