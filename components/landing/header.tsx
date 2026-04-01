@@ -121,7 +121,6 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               priority
               className="hidden h-5 w-auto dark:block sm:h-6"
             />
-            <span className="translate-y-[1px] text-xs font-medium tracking-wide text-muted-foreground sm:text-sm">Agency</span>
           </a>
 
           {/* Desktop Navigation */}

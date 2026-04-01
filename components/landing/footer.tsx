@@ -58,7 +58,7 @@ export function Footer({ language }: FooterProps) {
         <div className="grid gap-8 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="/" className="flex items-center gap-2">
+            <a href="/" className="flex items-center gap-2" aria-label="Zubu Agency">
               <Image
                 src="/placeholder-logo.png"
                 alt="Zubu"
@@ -73,7 +73,6 @@ export function Footer({ language }: FooterProps) {
                 height={64}
                 className="hidden h-6 w-auto dark:block"
               />
-              <span className="translate-y-[1px] text-sm font-medium text-muted-foreground">Agency</span>
             </a>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
               {isEn
