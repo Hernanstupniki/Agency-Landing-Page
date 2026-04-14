@@ -26,18 +26,18 @@ export function CTA({ language }: CTAProps) {
 
   return (
     <>
-      <section id="contacto" className="bg-muted/30 py-14 sm:py-20">
+      <section id="contacto" className="section-dark-shell section-format-mesh py-14 sm:py-20" data-animate="section">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-card px-6 py-16 shadow-sm sm:px-12 sm:py-20 lg:px-16">
+          <div className="card-premium relative overflow-hidden rounded-3xl px-6 py-16 sm:px-12 sm:py-20 lg:px-16" data-animate="card">
             {/* Subtle decorative elements */}
-            <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-muted/50" />
-            <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-muted/50" />
+            <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-[#2626dc]/18" />
+            <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-[#75f0e6]/34" />
 
             <div className="relative mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <h2 className="gradient-text text-3xl font-bold tracking-tight sm:text-4xl">
                 {isEn ? "Turn manual processes into smart systems" : isPt ? "Transforme processos manuais em sistemas inteligentes" : "Transformá procesos manuales en sistemas inteligentes"}
               </h2>
-              <p className="mt-6 text-lg text-muted-foreground">
+              <p className="mt-6 text-lg text-[#5b6b80]">
                 {isEn
                   ? "Start with a free assessment. We analyze your business and show you how to save time, reduce errors, and scale faster."
                   : isPt
@@ -45,12 +45,12 @@ export function CTA({ language }: CTAProps) {
                   : "Empezá con un diagnóstico gratuito. Analizamos tu negocio y te mostramos cómo podemos ayudarte a ahorrar tiempo, reducir errores y escalar."}
               </p>
               <div className="mt-10">
-                <Button size="lg" className="h-14 px-10 text-base" onClick={() => setContactModalOpen(true)}>
+                <Button size="lg" className="btn-premium h-14 rounded-full bg-gradient-to-r from-[#18d7d1] to-[#249bff] px-10 text-base text-white" onClick={() => setContactModalOpen(true)}>
                   {isEn ? "I want to automate my business" : isPt ? "Quero automatizar meu negocio" : "Quiero automatizar mi negocio"}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </div>
-              <p className="mt-6 text-sm text-muted-foreground">
+              <p className="mt-6 text-sm text-[#4a6180]/80">
                 {isEn ? "No commitment. We reply in under 24 hours." : isPt ? "Sem compromisso. Respondemos em menos de 24 horas." : "Sin compromiso. Respondemos en menos de 24 horas."}
               </p>
             </div>
@@ -60,7 +60,7 @@ export function CTA({ language }: CTAProps) {
 
       {contactModalOpen && (
         <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 px-4"
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#0f1f3d]/60 px-4"
           onClick={() => setContactModalOpen(false)}
         >
           <div
@@ -70,7 +70,7 @@ export function CTA({ language }: CTAProps) {
             <div className="mb-5 flex items-center justify-between">
               <h3 className="text-lg font-semibold">{isEn ? "Contact us" : isPt ? "Fale conosco" : "Contactanos"}</h3>
               <button
-                className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="pressable-control rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 onClick={() => setContactModalOpen(false)}
                 aria-label={isEn ? "Close" : isPt ? "Fechar" : "Cerrar"}
               >
@@ -87,7 +87,7 @@ export function CTA({ language }: CTAProps) {
             </p>
 
             <div className="space-y-3">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="w-full bg-primary text-white hover:bg-primary/90">
                 <a
                   href={calendarBookingUrl}
                   target="_blank"

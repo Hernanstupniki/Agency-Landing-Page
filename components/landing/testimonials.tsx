@@ -104,13 +104,13 @@ export function Testimonials({ language }: TestimonialsProps) {
   const testimonials = isEn ? testimonialsEn : isPt ? testimonialsPt : testimonialsEs
 
   return (
-    <section id="testimonios" className="bg-background py-14 sm:py-20">
+    <section id="testimonios" className="section-dark-shell section-format-diagonal py-14 sm:py-20" data-animate="section">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="gradient-text text-3xl font-bold tracking-tight sm:text-4xl">
             {isEn ? "Clients who trusted ZUBU" : isPt ? "Clientes que confiaram na ZUBU" : "Clientes que confiaron en ZUBU"}
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-[#5b6b80]">
             {isEn
               ? "Our clients value clarity, efficiency, and the real impact of every implemented solution"
               : isPt
@@ -123,20 +123,21 @@ export function Testimonials({ language }: TestimonialsProps) {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.author}
-              className="relative rounded-2xl border border-border/60 bg-card p-8"
+              className="card-premium relative rounded-2xl p-8"
+              data-animate="card"
             >
-              <Quote className="absolute right-6 top-6 h-8 w-8 text-muted/30" />
-              <p className="text-lg leading-relaxed text-foreground">
+              <Quote className="absolute right-6 top-6 h-8 w-8 text-[#5b6b80]/45" />
+              <p className="text-lg leading-relaxed text-[#0b1830]">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               <div className="mt-6 flex items-center justify-between">
                 <div>
-                  <div className="font-semibold text-foreground">{testimonial.author}</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="font-semibold text-[#0b1830]">{testimonial.author}</div>
+                  <div className="text-sm text-[#5b6b80]">
                     {testimonial.role}, {testimonial.company}
                   </div>
                 </div>
-                <div className="rounded-lg bg-muted px-3 py-1.5 text-sm font-medium text-foreground">
+                <div className="rounded-full bg-gradient-to-r from-[#18d7d1] to-[#249bff] px-3 py-1.5 text-sm font-medium text-white">
                   {testimonial.metric}
                 </div>
               </div>

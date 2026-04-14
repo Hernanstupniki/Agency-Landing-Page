@@ -117,13 +117,13 @@ export function TargetAudience({ language }: TargetAudienceProps) {
   const audiences = isEn ? audiencesEn : isPt ? audiencesPt : audiencesEs
 
   return (
-    <section id="para-quien" className="bg-muted/30 py-14 sm:py-20">
+    <section id="para-quien" className="section-dark-shell section-format-orbs py-14 sm:py-20" data-animate="section">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="gradient-text text-3xl font-bold tracking-tight sm:text-4xl">
             {isEn ? "Who is ZUBU for?" : isPt ? "Para quem e a ZUBU?" : "¿Para quién es ZUBU?"}
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-[#5b6b80]">
             {isEn
               ? "We work with businesses that need to digitize processes, respond faster, and gain more control"
               : isPt
@@ -136,14 +136,15 @@ export function TargetAudience({ language }: TargetAudienceProps) {
           {audiences.map((audience) => (
             <div
               key={audience.title}
-              className="flex items-start gap-4"
+              className="card-premium flex items-start gap-4 rounded-2xl p-5"
+              data-animate="card"
             >
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-card border border-border/60">
-                <audience.icon className="h-6 w-6 text-foreground" />
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border border-white/20 bg-gradient-to-br from-[#18d7d1] to-[#249bff]">
+                <audience.icon className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground">{audience.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">
+                <h3 className="font-semibold text-[#0b1830]">{audience.title}</h3>
+                <p className="mt-1 text-sm text-[#5b6b80]">
                   {audience.description}
                 </p>
               </div>

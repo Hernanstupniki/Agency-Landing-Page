@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useGSAP } from "@gsap/react"
 import type { Language } from "@/components/landing/language"
 import { Header } from "@/components/landing/header"
@@ -18,7 +19,7 @@ import { Footer } from "@/components/landing/footer"
 
 const LANGUAGE_STORAGE_KEY = "zubu-language"
 
-gsap.registerPlugin(useGSAP)
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 function isSupportedLanguage(value: string): value is Language {
   return value === "es" || value === "en" || value === "pt"
@@ -63,15 +64,45 @@ export function LandingPageClient() {
           reduceMotion: "(prefers-reduced-motion: reduce)",
         },
         (media) => {
-          const buttons = gsap.utils.toArray<HTMLElement>("[data-slot='button']")
+          const buttons = gsap.utils.toArray<HTMLElement>("[data-slot='button'], .pressable-control")
+          const sections = gsap.utils.toArray<HTMLElement>("[data-animate='section']")
+          const cards = gsap.utils.toArray<HTMLElement>("[data-animate='card']")
 
-          if (!buttons.length) {
+          if (!buttons.length && !sections.length && !cards.length) {
             return
           }
 
           const { reduceMotion } = media.conditions as { reduceMotion: boolean }
 
           if (!reduceMotion) {
+            for (const section of sections) {
+              gsap.from(section, {
+                autoAlpha: 0,
+                y: 32,
+                duration: 0.7,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: section,
+                  start: "top 84%",
+                  once: true,
+                },
+              })
+            }
+
+            for (const card of cards) {
+              gsap.from(card, {
+                autoAlpha: 0,
+                y: 22,
+                duration: 0.55,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: card,
+                  start: "top 90%",
+                  once: true,
+                },
+              })
+            }
+
             gsap.from(buttons, {
               autoAlpha: 0,
               y: 10,

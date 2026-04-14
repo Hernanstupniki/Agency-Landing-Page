@@ -102,7 +102,10 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header
+        className="sticky top-0 z-50 w-full border-b border-[#0b1830]/10 bg-white/90 text-[#0b1830] backdrop-blur supports-[backdrop-filter]:bg-white/75"
+        data-animate="section"
+      >
         <div className="relative mx-auto grid h-14 max-w-7xl grid-cols-[auto_1fr_auto] items-center px-4 sm:px-6 lg:px-8 md:grid-cols-[1fr_auto_1fr]">
           <a href="/" className="ml-2 flex items-center gap-2 sm:ml-3 md:ml-4 md:justify-self-start" aria-label="Zubu Agency">
             <Image
@@ -111,15 +114,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               width={180}
               height={64}
               priority
-              className="h-5 w-auto dark:hidden sm:h-6"
-            />
-            <Image
-              src="/placeholder-logo-dark.png"
-              alt="Zubu"
-              width={180}
-              height={64}
-              priority
-              className="hidden h-5 w-auto dark:block sm:h-6"
+              className="h-5 w-auto sm:h-6"
             />
           </a>
 
@@ -129,7 +124,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="nav-item-trace text-sm font-medium text-[#5b6b80] transition-colors hover:text-[#0b1830]"
               >
                 {link.label}
               </a>
@@ -139,7 +134,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           <div className="hidden items-center gap-2 md:flex md:justify-self-end">
             <button
               type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-muted"
+              className="pressable-control inline-flex h-9 w-9 items-center justify-center rounded-md border border-[#2626dc]/25 bg-white text-[#102242] transition-colors hover:bg-[#75f0e6]"
               onClick={toggleTheme}
               aria-label={toggleThemeLabel}
               title={toggleThemeLabel}
@@ -149,22 +144,21 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             <div className="relative">
               <button
                 type="button"
-                className="inline-flex h-9 items-center gap-2 rounded-md border border-border bg-background px-3 text-sm text-foreground"
+                className="pressable-control inline-flex h-9 items-center gap-2 rounded-md border border-[#2626dc]/25 bg-white px-3 text-sm text-[#102242]"
                 onClick={() => setLanguageMenuOpen((prev) => !prev)}
                 aria-haspopup="menu"
-                aria-expanded={languageMenuOpen}
                 aria-label={selectLanguageLabel}
               >
                 {language === "es" ? <FlagEs /> : language === "en" ? <FlagUs /> : <FlagBr />}
                 <span>{languageLabel}</span>
-                <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                <ChevronDown className="h-4 w-4 text-[#102242]" />
               </button>
 
               {languageMenuOpen && (
-                <div className="absolute right-0 top-11 z-50 w-40 rounded-md border border-border bg-background p-1 shadow-md">
+                <div className="absolute right-0 top-11 z-50 w-40 rounded-md border border-[#2626dc]/20 bg-white p-1 shadow-md">
                   <button
                     type="button"
-                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm hover:bg-muted"
+                    className="pressable-control flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm text-[#102242] hover:bg-[#75f0e6]"
                     onClick={() => {
                       onLanguageChange("es")
                       setLanguageMenuOpen(false)
@@ -175,7 +169,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   </button>
                   <button
                     type="button"
-                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm hover:bg-muted"
+                    className="pressable-control flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm text-[#102242] hover:bg-[#75f0e6]"
                     onClick={() => {
                       onLanguageChange("en")
                       setLanguageMenuOpen(false)
@@ -186,7 +180,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   </button>
                   <button
                     type="button"
-                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm hover:bg-muted"
+                    className="pressable-control flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm text-[#102242] hover:bg-[#75f0e6]"
                     onClick={() => {
                       onLanguageChange("pt")
                       setLanguageMenuOpen(false)
@@ -200,7 +194,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             </div>
             <Button
               size="sm"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="btn-premium rounded-full bg-gradient-to-r from-[#18d7d1] to-[#249bff] text-white hover:from-[#16c9c3] hover:to-[#228fed]"
               onClick={() => setContactModalOpen(true)}
             >
               {contactLabel}
@@ -211,7 +205,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           <div className="ml-auto flex items-center gap-1 md:hidden">
             <button
               type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-muted"
+              className="pressable-control inline-flex h-9 w-9 items-center justify-center rounded-md border border-[#2626dc]/25 bg-white text-[#102242] transition-colors hover:bg-[#75f0e6]"
               onClick={toggleTheme}
               aria-label={toggleThemeLabel}
               title={toggleThemeLabel}
@@ -219,7 +213,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
             <button
-              className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground"
+              className="pressable-control inline-flex items-center justify-center rounded-md p-2 text-[#102242]"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? closeMenuLabel : openMenuLabel}
             >
@@ -230,28 +224,28 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="border-t border-border/40 bg-background md:hidden">
+          <div className="border-t border-[#2626dc]/20 bg-white md:hidden">
             <nav className="flex flex-col gap-1 px-4 py-4">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                  className="rounded-lg px-3 py-2 text-sm font-medium text-[#385173]/80 transition-colors hover:bg-[#75f0e6] hover:text-[#102242]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               ))}
               <div className="mt-4 space-y-2">
-                <div className="rounded-md border border-border p-2">
-                  <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">{languageTitle}</p>
+                <div className="rounded-md border border-[#2626dc]/20 p-2">
+                  <p className="mb-2 text-xs font-medium uppercase tracking-wide text-[#102242]">{languageTitle}</p>
                   <div className="grid grid-cols-3 gap-2">
                     <button
                       type="button"
-                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
+                      className={`pressable-control inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
                         language === "es"
-                          ? "border-foreground bg-muted text-foreground"
-                          : "border-border bg-background text-muted-foreground"
+                          ? "border-[#2626dc] bg-[#75f0e6] text-[#102242]"
+                          : "border-[#2626dc]/20 bg-white text-[#385173]/80"
                       }`}
                       onClick={() => onLanguageChange("es")}
                     >
@@ -260,10 +254,10 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                     </button>
                     <button
                       type="button"
-                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
+                      className={`pressable-control inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
                         language === "en"
-                          ? "border-foreground bg-muted text-foreground"
-                          : "border-border bg-background text-muted-foreground"
+                          ? "border-[#2626dc] bg-[#75f0e6] text-[#102242]"
+                          : "border-[#2626dc]/20 bg-white text-[#385173]/80"
                       }`}
                       onClick={() => onLanguageChange("en")}
                     >
@@ -272,10 +266,10 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                     </button>
                     <button
                       type="button"
-                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
+                      className={`pressable-control inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
                         language === "pt"
-                          ? "border-foreground bg-muted text-foreground"
-                          : "border-border bg-background text-muted-foreground"
+                          ? "border-[#2626dc] bg-[#75f0e6] text-[#102242]"
+                          : "border-[#2626dc]/20 bg-white text-[#385173]/80"
                       }`}
                       onClick={() => onLanguageChange("pt")}
                     >
@@ -285,7 +279,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   </div>
                 </div>
                 <Button
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full bg-primary text-white hover:bg-primary/90"
                   onClick={() => {
                     setMobileMenuOpen(false)
                     setContactModalOpen(true)
@@ -301,7 +295,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
 
       {contactModalOpen && (
         <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 px-4"
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#0f1f3d]/60 px-4"
           onClick={() => setContactModalOpen(false)}
         >
           <div
@@ -311,7 +305,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             <div className="mb-5 flex items-center justify-between">
               <h3 className="text-lg font-semibold">{modalTitle}</h3>
               <button
-                className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="pressable-control rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 onClick={() => setContactModalOpen(false)}
                 aria-label={isEn ? "Close" : isPt ? "Fechar" : "Cerrar"}
               >
@@ -324,7 +318,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             </p>
 
             <div className="space-y-3">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="w-full bg-primary text-white hover:bg-primary/90">
                 <a
                   href={calendarBookingUrl}
                   target="_blank"

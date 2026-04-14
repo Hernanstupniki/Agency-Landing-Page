@@ -133,13 +133,13 @@ export function Benefits({ language }: BenefitsProps) {
   const benefits = isEn ? benefitsEn : isPt ? benefitsPt : benefitsEs
 
   return (
-    <section id="beneficios" className="bg-muted/30 py-14 sm:py-20">
+    <section id="beneficios" className="section-dark-shell section-format-bars py-14 sm:py-20" data-animate="section">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="gradient-text text-3xl font-bold tracking-tight sm:text-4xl">
             {isEn ? "Results you can expect" : isPt ? "Resultados que voce pode esperar" : "Resultados que podés esperar"}
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-[#5b6b80]">
             {isEn ? "Concrete and measurable benefits for your business" : isPt ? "Beneficios concretos e mensuraveis para o seu negocio" : "Beneficios concretos y medibles para tu negocio"}
           </p>
         </div>
@@ -148,11 +148,14 @@ export function Benefits({ language }: BenefitsProps) {
           {benefits.slice(0, 4).map((benefit) => (
             <div
               key={benefit.title}
-              className="rounded-2xl border border-border/60 bg-card p-6"
+              className="card-premium rounded-2xl p-6"
+              data-animate="card"
             >
-              <benefit.icon className="h-8 w-8 text-foreground" />
-              <h3 className="mt-4 font-semibold text-foreground">{benefit.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{benefit.description}</p>
+              <div className="inline-flex rounded-lg bg-gradient-to-br from-[#1e2d7f] to-[#2626dc] p-2.5 text-[#75f0e6]">
+                <benefit.icon className="h-8 w-8" />
+              </div>
+              <h3 className="mt-4 font-semibold text-[#0b1830]">{benefit.title}</h3>
+              <p className="mt-2 text-sm text-[#5b6b80]">{benefit.description}</p>
             </div>
           ))}
         </div>
@@ -161,11 +164,14 @@ export function Benefits({ language }: BenefitsProps) {
           {benefits.slice(4).map((benefit) => (
             <div
               key={benefit.title}
-              className="rounded-2xl border border-border/60 bg-card p-6"
+              className="card-premium rounded-2xl p-6"
+              data-animate="card"
             >
-              <benefit.icon className="h-8 w-8 text-foreground" />
-              <h3 className="mt-4 font-semibold text-foreground">{benefit.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{benefit.description}</p>
+              <div className="inline-flex rounded-lg bg-gradient-to-br from-[#1e2d7f] to-[#2626dc] p-2.5 text-[#75f0e6]">
+                <benefit.icon className="h-8 w-8" />
+              </div>
+              <h3 className="mt-4 font-semibold text-[#0b1830]">{benefit.title}</h3>
+              <p className="mt-2 text-sm text-[#5b6b80]">{benefit.description}</p>
             </div>
           ))}
         </div>

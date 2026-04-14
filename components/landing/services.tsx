@@ -149,13 +149,13 @@ export function Services({ language }: ServicesProps) {
   const services = isEn ? servicesEn : isPt ? servicesPt : servicesEs
 
   return (
-    <section id="servicios" className="bg-background pt-12 pb-14 sm:pt-16 sm:pb-20">
+    <section id="servicios" className="section-dark-shell section-format-diagonal pb-14 pt-12 sm:pb-20 sm:pt-16" data-animate="section">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="gradient-text text-3xl font-bold tracking-tight sm:text-4xl">
             {isEn ? "Our services" : isPt ? "Nossos servicos" : "Nuestros servicios"}
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-4 text-lg text-[#5b6b80]">
             {isEn
               ? "End-to-end solutions to digitize, automate, and scale your business"
               : isPt
@@ -168,13 +168,14 @@ export function Services({ language }: ServicesProps) {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group rounded-2xl border border-border/60 bg-card p-6 transition-all hover:border-border hover:shadow-md"
+              className="group card-premium rounded-2xl p-6 transition-all hover:-translate-y-1"
+              data-animate="card"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-muted transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#1e2d7f] to-[#2626dc] text-[#75f0e6] transition-colors group-hover:bg-[#2626dc] group-hover:text-white">
                 <service.icon className="h-6 w-6" />
               </div>
-              <h3 className="font-semibold text-foreground">{service.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <h3 className="font-semibold text-[#0b1830]">{service.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-[#5b6b80]">
                 {service.description}
               </p>
             </div>

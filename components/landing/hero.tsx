@@ -34,17 +34,22 @@ export function Hero({ language }: HeroProps) {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[#f5f7fb] pb-10 pt-4 dark:bg-[#0b111f] sm:pb-12 sm:pt-6 lg:pb-14 lg:pt-8" aria-labelledby="hero-title">
+      <section
+        className="section-dark-shell section-format-orbs pb-10 pt-4 sm:pb-12 sm:pt-6 lg:pb-14 lg:pt-8"
+        aria-labelledby="hero-title"
+        data-animate="section"
+      >
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -left-24 top-0 h-80 w-80 animate-hero-float rounded-full bg-[#a7d7ff]/35 blur-3xl" />
-        <div className="absolute -right-24 top-8 h-96 w-96 animate-hero-float-reverse rounded-full bg-[#ffd6b3]/35 blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#dce3ee_1px,transparent_1px),linear-gradient(to_bottom,#dce3ee_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] opacity-45 [mask-image:radial-gradient(ellipse_70%_58%_at_50%_35%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,rgba(137,160,198,0.2)_1px,transparent_1px),linear-gradient(to_bottom,rgba(137,160,198,0.2)_1px,transparent_1px)] dark:opacity-35" />
+        <div className="absolute -left-24 top-0 h-80 w-80 animate-hero-float rounded-full bg-[#2626dc]/35 blur-3xl" />
+        <div className="absolute -right-24 top-8 h-96 w-96 animate-hero-float-reverse rounded-full bg-[#75f0e6]/28 blur-3xl" />
+        <div className="absolute bottom-10 left-6 h-16 w-16 rounded-2xl border border-[#090b12]/20 bg-[#090b12]/8" />
+        <div className="absolute right-10 top-24 h-24 w-24 rounded-2xl border border-[#2626dc]/35 bg-[#75f0e6]/35" />
       </div>
 
       <div className="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_620px] lg:gap-12 lg:px-8">
         <div className="text-center lg:text-left">
           <div className="mb-0 flex justify-center lg:justify-start">
-            <span className="inline-flex items-center gap-1.5 px-0 py-0 text-xs font-medium text-muted-foreground">
+            <span className="inline-flex items-center gap-1.5 px-0 py-0 text-xs font-medium text-[#385173]/80">
               <svg
                 className="h-3 w-5 overflow-hidden rounded-[2px]"
                 viewBox="0 0 24 16"
@@ -61,30 +66,30 @@ export function Hero({ language }: HeroProps) {
 
           <h1
             id="hero-title"
-            className="mx-auto mb-4 mt-3 max-w-[19ch] text-center text-6xl font-black leading-[0.98] tracking-[-0.025em] text-foreground sm:max-w-none sm:text-7xl lg:mx-0 lg:mb-6 lg:text-left lg:text-7xl"
+            className="mx-auto mb-4 mt-3 max-w-[19ch] text-center text-6xl font-black leading-[0.98] tracking-[-0.025em] text-[#090b12] sm:max-w-none sm:text-7xl lg:mx-0 lg:mb-6 lg:text-left lg:text-7xl"
           >
             {isEn ? (
               <>
                 <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- manual tasks.</span>
                 <span className="block">- errors.</span>
-                <span className="block">+ sales.</span>
+                <span className="gradient-text block">+ sales.</span>
               </>
             ) : isPt ? (
               <>
                 <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tarefas manuais.</span>
                 <span className="block">- erros.</span>
-                <span className="block">+ vendas.</span>
+                <span className="gradient-text block">+ vendas.</span>
               </>
             ) : (
               <>
                 <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tareas manuales.</span>
                 <span className="block">- errores.</span>
-                <span className="block">+ ventas.</span>
+                <span className="gradient-text block">+ ventas.</span>
               </>
             )}
           </h1>
 
-          <p className="mx-auto mt-2 max-w-3xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg lg:mx-0">
+          <p className="mx-auto mt-2 max-w-3xl text-pretty text-base leading-relaxed text-[#2f4667]/80 sm:text-lg lg:mx-0">
             {isEn
               ? "We help businesses and SMEs save time, reduce errors, and increase sales through automation, custom software, bots, and smart integrations."
               : isPt
@@ -95,13 +100,18 @@ export function Hero({ language }: HeroProps) {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
             <Button
               size="lg"
-              className="h-12 rounded-full bg-primary px-8 text-base text-primary-foreground shadow-[0_14px_32px_rgba(10,15,28,0.22)] hover:bg-primary/90"
+              className="btn-premium h-12 rounded-full bg-gradient-to-r from-[#18d7d1] to-[#249bff] px-8 text-base text-white"
               onClick={() => setContactModalOpen(true)}
             >
               {isEn ? "Request an assessment" : isPt ? "Solicitar diagnostico" : "Solicitar diagnóstico"}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button asChild variant="outline" size="lg" className="h-12 rounded-full border-border bg-background/80 px-8 text-base text-foreground shadow-[0_10px_25px_rgba(148,163,184,0.2)] hover:bg-background dark:bg-card/85 dark:hover:bg-card">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="h-12 rounded-full border-[#0b1830]/15 bg-white px-8 text-base text-[#0b1830] hover:border-[#18d7d1]/35 hover:bg-[#eef3f8]"
+            >
               <a href="#servicios">{isEn ? "Our services" : isPt ? "Nossos servicos" : "Nuestros servicios"}</a>
             </Button>
           </div>
@@ -121,23 +131,23 @@ export function Hero({ language }: HeroProps) {
           </div>
 
           <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-3">
-            <div className="animate-hero-float rounded-2xl border border-border/70 bg-card p-4 text-left shadow-sm">
-              <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-muted">
-                <Zap className="h-5 w-5 text-foreground" />
+            <div className="animate-hero-float card-premium rounded-2xl p-4 text-left" data-animate="card">
+              <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#b9f2ea] bg-[#e7fffb] text-[#0f9f99]">
+                <Zap className="h-5 w-5" />
               </div>
-              <p className="text-sm font-semibold text-foreground">{isEn ? "Automation" : isPt ? "Automacao" : "Automatización"}</p>
+              <p className="text-sm font-semibold text-[#102242]">{isEn ? "Automation" : isPt ? "Automacao" : "Automatización"}</p>
             </div>
-            <div className="animate-hero-float-delayed rounded-2xl border border-border/70 bg-card p-4 text-left shadow-sm">
-              <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-muted">
-                <BarChart3 className="h-5 w-5 text-foreground" />
+            <div className="animate-hero-float-delayed card-premium rounded-2xl p-4 text-left" data-animate="card">
+              <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#cfe0ff] bg-[#eaf2ff] text-[#2a63d6]">
+                <BarChart3 className="h-5 w-5" />
               </div>
-              <p className="text-sm font-semibold text-foreground">{isEn ? "Custom software" : isPt ? "Software sob medida" : "Software a medida"}</p>
+              <p className="text-sm font-semibold text-[#102242]">{isEn ? "Custom software" : isPt ? "Software sob medida" : "Software a medida"}</p>
             </div>
-            <div className="animate-hero-float rounded-2xl border border-border/70 bg-card p-4 text-left shadow-sm [animation-delay:0.9s]">
-              <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-muted">
-                <Bot className="h-5 w-5 text-foreground" />
+            <div className="animate-hero-float card-premium rounded-2xl p-4 text-left [animation-delay:0.9s]" data-animate="card">
+              <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#ddd2ff] bg-[#f2eeff] text-[#5b3cd1]">
+                <Bot className="h-5 w-5" />
               </div>
-              <p className="text-sm font-semibold text-foreground">{isEn ? "Applied AI" : isPt ? "IA aplicada" : "IA aplicada"}</p>
+              <p className="text-sm font-semibold text-[#102242]">{isEn ? "Applied AI" : isPt ? "IA aplicada" : "IA aplicada"}</p>
             </div>
           </div>
         </div>
@@ -146,7 +156,7 @@ export function Hero({ language }: HeroProps) {
 
       {contactModalOpen && (
         <div
-          className="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 px-4"
+          className="fixed inset-0 z-[70] flex items-center justify-center bg-[#0f1f3d]/60 px-4"
           onClick={() => setContactModalOpen(false)}
         >
           <div
@@ -156,7 +166,7 @@ export function Hero({ language }: HeroProps) {
             <div className="mb-5 flex items-center justify-between">
               <h3 className="text-lg font-semibold">{modalTitle}</h3>
               <button
-                className="rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="pressable-control rounded-md p-1 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 onClick={() => setContactModalOpen(false)}
                 aria-label={isEn ? "Close" : isPt ? "Fechar" : "Cerrar"}
               >
@@ -169,7 +179,7 @@ export function Hero({ language }: HeroProps) {
             </p>
 
             <div className="space-y-3">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="w-full bg-primary text-white hover:bg-primary/90">
                 <a
                   href={calendarBookingUrl}
                   target="_blank"

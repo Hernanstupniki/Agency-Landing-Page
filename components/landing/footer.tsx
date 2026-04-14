@@ -53,11 +53,11 @@ export function Footer({ language }: FooterProps) {
   const footerLinks = isEn ? footerLinksEn : isPt ? footerLinksPt : footerLinksEs
 
   return (
-    <footer className="border-t border-border/40 bg-background">
+    <footer className="border-t border-[#0b1830]/12 bg-white" data-animate="section">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid gap-8 lg:grid-cols-4">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2" data-animate="card">
             <a href="/" className="flex items-center gap-2" aria-label="Zubu Agency">
               <Image
                 src="/placeholder-logo.png"
@@ -74,7 +74,7 @@ export function Footer({ language }: FooterProps) {
                 className="hidden h-6 w-auto dark:block"
               />
             </a>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-[#5b6b80]">
               {isEn
                 ? "Automation, software development, and artificial intelligence agency. We help companies and SMEs transform manual processes into smart systems."
                 : isPt
@@ -86,7 +86,7 @@ export function Footer({ language }: FooterProps) {
                 href="https://www.linkedin.com/in/hernanstupniki/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-[#5b6b80] transition-colors hover:text-[#0b1830]"
                 aria-label="LinkedIn"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -97,7 +97,7 @@ export function Footer({ language }: FooterProps) {
                 href="https://www.instagram.com/zubudevagency/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="text-[#5b6b80] transition-colors hover:text-[#0b1830]"
                 aria-label="Instagram"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -108,15 +108,12 @@ export function Footer({ language }: FooterProps) {
           </div>
 
           {/* Links */}
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">{isEn ? "Services" : isPt ? "Servicos" : "Servicios"}</h3>
+          <div data-animate="card">
+            <h3 className="text-sm font-semibold text-[#102242]">{isEn ? "Services" : isPt ? "Servicos" : "Servicios"}</h3>
             <ul className="mt-4 space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <a href={link.href} className="text-sm text-[#5b6b80] transition-colors hover:text-[#0b1830]">
                     {link.label}
                   </a>
                 </li>
@@ -124,15 +121,12 @@ export function Footer({ language }: FooterProps) {
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-foreground">{isEn ? "Company" : isPt ? "Empresa" : "Empresa"}</h3>
+          <div data-animate="card">
+            <h3 className="text-sm font-semibold text-[#102242]">{isEn ? "Company" : isPt ? "Empresa" : "Empresa"}</h3>
             <ul className="mt-4 space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <a href={link.href} className="text-sm text-[#5b6b80] transition-colors hover:text-[#0b1830]">
                     {link.label}
                   </a>
                 </li>
@@ -141,8 +135,8 @@ export function Footer({ language }: FooterProps) {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-border/40 pt-8">
-          <p className="text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-[#0b1830]/10 pt-8">
+          <p className="text-center text-sm text-[#5b6b80]">
             © {new Date().getFullYear()} ZUBU Agency. {isEn ? "All rights reserved." : isPt ? "Todos os direitos reservados." : "Todos los derechos reservados."}
           </p>
         </div>

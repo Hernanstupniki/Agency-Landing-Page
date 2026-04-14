@@ -115,21 +115,21 @@ export function About({ language }: AboutProps) {
   const teamMembers = isEn ? teamMembersEn : isPt ? teamMembersPt : teamMembersEs
 
   return (
-    <section id="nosotros" className="bg-muted/30 pb-14 pt-10 sm:pb-20 sm:pt-14">
+    <section id="nosotros" className="section-dark-shell section-format-mesh pb-14 pt-10 sm:pb-20 sm:pt-14" data-animate="section">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            <h2 className="gradient-text text-3xl font-bold tracking-tight sm:text-4xl">
               {isEn ? "Who we are" : isPt ? "Quem somos" : "Quiénes somos"}
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 text-lg leading-relaxed text-[#5b6b80]">
               {isEn
                 ? "ZUBU is an automation and software development agency focused on designing clear, measurable, and scalable systems."
                 : isPt
                   ? "A ZUBU e uma agencia de automacao e desenvolvimento de software focada em desenhar sistemas claros, mensuraveis e escalaveis."
                 : "ZUBU es una agencia de automatización y desarrollo de software enfocada en diseñar sistemas claros, medibles y escalables."}
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-4 text-lg leading-relaxed text-[#5b6b80]">
               {isEn
                 ? "We build solutions for customer service, sales, operations, collections, data, and internal control, with a practical vision: fewer manual tasks, more order, and better outcomes."
                 : isPt
@@ -139,34 +139,38 @@ export function About({ language }: AboutProps) {
             <ul className="mt-8 grid grid-cols-2 gap-4">
               {highlights.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-foreground" />
-                  <span className="text-sm font-medium text-foreground">{item}</span>
+                  <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-[#2d74d6]" />
+                  <span className="text-sm font-medium text-[#102242]">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
           <div className="flex items-center justify-center lg:justify-end">
             <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-border/50 to-transparent" />
+              <div className="absolute -inset-4 rounded-3xl bg-white shadow-[inset_0_0_0_1px_rgba(11,24,48,0.05)]" />
               <div className="relative grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
-                    <div className="text-3xl font-bold text-foreground">+10</div>
-                    <div className="mt-1 text-sm text-muted-foreground">{isEn ? "Delivered projects" : isPt ? "Projetos entregues" : "Proyectos entregados"}</div>
+                  <div className="card-premium rounded-2xl p-6" data-animate="card">
+                    <div className="inline-flex rounded-md border border-[#dbe6f7] bg-white px-2 py-1 text-xs font-semibold text-[#102242] shadow-sm">ZUBU</div>
+                    <div className="mt-3 text-3xl font-bold text-[#102242]">+10</div>
+                    <div className="mt-1 text-sm text-[#102242]">{isEn ? "Delivered projects" : isPt ? "Projetos entregues" : "Proyectos entregados"}</div>
                   </div>
-                  <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
-                    <div className="text-3xl font-bold text-foreground">100%</div>
-                    <div className="mt-1 text-sm text-muted-foreground">{isEn ? "Satisfied clients" : isPt ? "Clientes satisfeitos" : "Clientes satisfechos"}</div>
+                  <div className="card-premium rounded-2xl p-6" data-animate="card">
+                    <div className="inline-flex rounded-md border border-[#dbe6f7] bg-white px-2 py-1 text-xs font-semibold text-[#102242] shadow-sm">OK</div>
+                    <div className="mt-3 text-3xl font-bold text-[#102242]">100%</div>
+                    <div className="mt-1 text-sm text-[#102242]">{isEn ? "Satisfied clients" : isPt ? "Clientes satisfeitos" : "Clientes satisfechos"}</div>
                   </div>
                 </div>
                 <div className="mt-8 space-y-4">
-                  <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
-                    <div className="text-3xl font-bold text-foreground">24/7</div>
-                    <div className="mt-1 text-sm text-muted-foreground">{isEn ? "Systems running" : isPt ? "Sistemas funcionando" : "Sistemas funcionando"}</div>
+                  <div className="card-premium rounded-2xl p-6" data-animate="card">
+                    <div className="inline-flex rounded-md border border-[#dbe6f7] bg-white px-2 py-1 text-xs font-semibold text-[#102242] shadow-sm">LIVE</div>
+                    <div className="mt-3 text-3xl font-bold text-[#102242]">24/7</div>
+                    <div className="mt-1 text-sm text-[#102242]">{isEn ? "Systems running" : isPt ? "Sistemas funcionando" : "Sistemas funcionando"}</div>
                   </div>
-                  <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
-                    <div className="text-3xl font-bold text-foreground">-70%</div>
-                    <div className="mt-1 text-sm text-muted-foreground">{isEn ? "Time on manual tasks" : isPt ? "Tempo em tarefas manuais" : "Tiempo en tareas manuales"}</div>
+                  <div className="card-premium rounded-2xl p-6" data-animate="card">
+                    <div className="inline-flex rounded-md border border-[#dbe6f7] bg-white px-2 py-1 text-xs font-semibold text-[#102242] shadow-sm">FLOW</div>
+                    <div className="mt-3 text-3xl font-bold text-[#102242]">-70%</div>
+                    <div className="mt-1 text-sm text-[#102242]">{isEn ? "Time on manual tasks" : isPt ? "Tempo em tarefas manuais" : "Tiempo en tareas manuales"}</div>
                   </div>
                 </div>
               </div>
@@ -175,10 +179,10 @@ export function About({ language }: AboutProps) {
         </div>
 
         <div className="mt-14 sm:mt-16">
-          <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">{isEn ? "Our team" : isPt ? "Nosso time" : "Nuestro equipo"}</h3>
+          <h3 className="gradient-text text-2xl font-bold tracking-tight sm:text-3xl">{isEn ? "Our team" : isPt ? "Nosso time" : "Nuestro equipo"}</h3>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {teamMembers.map((member) => (
-              <article key={member.name} className="flex h-full flex-col rounded-2xl border border-border/60 bg-card px-6 pt-6 pb-6 shadow-sm">
+              <article key={member.name} className="card-premium flex h-full flex-col rounded-2xl px-6 pb-6 pt-6" data-animate="card">
                 <div className="flex items-center gap-4">
                   <Image
                     src={member.photo}
@@ -188,17 +192,17 @@ export function About({ language }: AboutProps) {
                     className="h-16 w-16 rounded-xl object-cover"
                   />
                   <div>
-                    <h4 className="text-base font-semibold text-foreground">{member.name}</h4>
-                    <p className="text-sm font-medium text-muted-foreground">{member.role}</p>
+                    <h4 className="text-base font-semibold text-[#102242]">{member.name}</h4>
+                    <p className="text-sm font-medium text-[#102242]">{member.role}</p>
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{member.description}</p>
+                <p className="mt-4 text-sm leading-relaxed text-[#5b6b80]">{member.description}</p>
                 <div className="mt-auto flex justify-end pt-2">
                   <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex text-muted-foreground transition-colors hover:text-foreground"
+                    className="inline-flex text-[#2d74d6] transition-colors hover:text-[#2626dc]"
                     aria-label={isEn ? `LinkedIn profile of ${member.name}` : isPt ? `LinkedIn de ${member.name}` : `LinkedIn de ${member.name}`}
                   >
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
