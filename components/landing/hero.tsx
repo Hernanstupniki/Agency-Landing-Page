@@ -19,6 +19,8 @@ export function Hero({ language }: HeroProps) {
   const [contactModalOpen, setContactModalOpen] = useState(false)
   const isEn = language === "en"
   const isPt = language === "pt"
+  const salesAccentClass =
+    "block bg-[linear-gradient(102deg,#9EEFFF_0%,#67D8FF_38%,#3BB3E8_68%,#1F9EE3_100%)] bg-clip-text text-transparent [text-shadow:0_1px_0_rgba(255,255,255,0.32)] drop-shadow-[0_2px_10px_rgba(59,179,232,0.32)]"
   const modalTitle = isEn ? "Contact us" : isPt ? "Fale conosco" : "Contactanos"
   const modalBody = isEn
     ? "Book a meeting through Google Calendar and we will coordinate via Google Meet."
@@ -67,19 +69,19 @@ export function Hero({ language }: HeroProps) {
               <>
                 <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- manual tasks.</span>
                 <span className="block">- errors.</span>
-                <span className="block text-[#3BB3E8]">+ sales.</span>
+                <span className={salesAccentClass}>+ sales.</span>
               </>
             ) : isPt ? (
               <>
                 <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tarefas manuais.</span>
                 <span className="block">- erros.</span>
-                <span className="block text-[#3BB3E8]">+ vendas.</span>
+                <span className={salesAccentClass}>+ vendas.</span>
               </>
             ) : (
               <>
                 <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tareas manuales.</span>
                 <span className="block">- errores.</span>
-                <span className="block text-[#3BB3E8]">+ ventas.</span>
+                <span className={salesAccentClass}>+ ventas.</span>
               </>
             )}
           </h1>
