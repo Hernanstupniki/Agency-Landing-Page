@@ -48,18 +48,13 @@ const audiencesEs = [
   },
   {
     icon: Scissors,
-    title: "Barberías",
+    title: "Barberías y peluquerías",
     description: "Equipos que necesitan ordenar agenda, recordatorios y atención por WhatsApp",
   },
   {
     icon: Scissors,
-    title: "Peluquerías",
+    title: "Spas",
     description: "Salones que buscan automatizar reservas, confirmaciones y campañas de fidelización",
-  },
-  {
-    icon: Stethoscope,
-    title: "Cliniecas",
-    description: "Negocios que se identifican con ese rubro y quieren digitalizar la atención al cliente",
   },
 ]
 
@@ -101,18 +96,13 @@ const audiencesEn = [
   },
   {
     icon: Scissors,
-    title: "Barbershops",
+    title: "Barbershops and hair salons",
     description: "Teams that need better scheduling, reminders, and WhatsApp customer care",
   },
   {
     icon: Scissors,
-    title: "Hair salons",
+    title: "Spas",
     description: "Salons looking to automate bookings, confirmations, and retention campaigns",
-  },
-  {
-    icon: Stethoscope,
-    title: "Cliniecas",
-    description: "Businesses identified with this segment that want to digitize customer service",
   },
 ]
 
@@ -154,18 +144,13 @@ const audiencesPt = [
   },
   {
     icon: Scissors,
-    title: "Barbearias",
+    title: "Barbearias e saloes de beleza",
     description: "Equipes que precisam organizar agenda, lembretes e atendimento por WhatsApp",
   },
   {
     icon: Scissors,
-    title: "Saloes de beleza",
+    title: "Spas",
     description: "Saloes que buscam automatizar reservas, confirmacoes e campanhas de fidelizacao",
-  },
-  {
-    icon: Stethoscope,
-    title: "Cliniecas",
-    description: "Negocios desse segmento que querem digitalizar o atendimento ao cliente",
   },
 ]
 
