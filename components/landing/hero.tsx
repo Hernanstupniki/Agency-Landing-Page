@@ -20,7 +20,7 @@ export function Hero({ language }: HeroProps) {
   const isEn = language === "en"
   const isPt = language === "pt"
   const salesAccentClass =
-    "block bg-[linear-gradient(96deg,#45CCFF_0%,#14B5FF_44%,#0A9EFF_100%)] bg-clip-text text-transparent saturate-150 contrast-125 [text-shadow:0_1px_0_rgba(5,28,52,0.38)] drop-shadow-[0_1px_1px_rgba(5,28,52,0.26)]"
+    "block font-black text-[#3BB3E8]"
   const modalTitle = isEn ? "Contact us" : isPt ? "Fale conosco" : "Contactanos"
   const modalBody = isEn
     ? "Book a meeting through Google Calendar and we will coordinate via Google Meet."
