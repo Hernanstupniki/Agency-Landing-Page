@@ -53,21 +53,21 @@ export function Footer({ language }: FooterProps) {
   const footerLinks = isEn ? footerLinksEn : isPt ? footerLinksPt : footerLinksEs
 
   return (
-    <footer className="border-t border-border/40 bg-background">
+    <footer className="border-t border-border/40 bg-background dark:border-white/10 dark:bg-[#040812]">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid gap-8 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-2">
             <a href="/" className="flex items-center gap-2" aria-label="Zubu Agency">
               <Image
-                src="/placeholder-logo.png"
+                src="/placeholder-logo.webp"
                 alt="Zubu"
                 width={180}
                 height={64}
                 className="h-6 w-auto dark:hidden"
               />
               <Image
-                src="/placeholder-logo-dark.png"
+                src="/placeholder-logo-dark.webp"
                 alt="Zubu"
                 width={180}
                 height={64}
@@ -94,7 +94,7 @@ export function Footer({ language }: FooterProps) {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/zubudevagency/"
+                href="https://www.instagram.com/zubuagency/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground transition-colors hover:text-foreground"

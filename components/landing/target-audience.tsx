@@ -164,7 +164,7 @@ export function TargetAudience({ language }: TargetAudienceProps) {
   const audiences = isEn ? audiencesEn : isPt ? audiencesPt : audiencesEs
 
   return (
-    <section id="para-quien" className="bg-muted/30 py-14 sm:py-20">
+    <section id="para-quien" className="bg-muted/30 py-14 dark-section-alt sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -185,8 +185,8 @@ export function TargetAudience({ language }: TargetAudienceProps) {
               key={audience.title}
               className="flex items-start gap-4"
             >
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-card border border-border/60">
-                <audience.icon className="h-6 w-6 text-foreground" />
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border border-[#3BB3E8]/18 bg-[#3BB3E8]/10 text-[#3BB3E8]">
+                <audience.icon className="h-6 w-6" />
               </div>
               <div>
                 <h3 className="font-semibold text-foreground">{audience.title}</h3>

@@ -40,25 +40,25 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+  --background: oklch(0.17 0.02 255);
+  --foreground: oklch(0.985 0.005 255);
+  --card: oklch(0.22 0.02 255);
+  --card-foreground: oklch(0.985 0.005 255);
+  --popover: oklch(0.22 0.02 255);
+  --popover-foreground: oklch(0.985 0.005 255);
   --primary: oklch(0.985 0 0);
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --secondary: oklch(0.28 0.02 255);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --muted: oklch(0.25 0.018 255);
+  --muted-foreground: oklch(0.76 0.015 255);
+  --accent: oklch(0.28 0.03 247);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
+  --border: oklch(0.33 0.02 255);
+  --input: oklch(0.3 0.02 255);
+  --ring: oklch(0.63 0.1 244);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -121,6 +121,15 @@
   }
   body {
     @apply bg-background text-foreground;
+    background:
+      radial-gradient(circle at top, rgba(59, 179, 232, 0.06), transparent 26%),
+      linear-gradient(180deg, #fbfdff 0%, #f6f8fc 100%);
+  }
+
+  .dark body {
+    background:
+      radial-gradient(circle at top, rgba(59, 179, 232, 0.08), transparent 28%),
+      linear-gradient(180deg, #040813 0%, #07101c 48%, #050914 100%);
   }
 
   button:not(:disabled),
@@ -181,7 +190,86 @@
   }
 }
 
+@keyframes contact-overlay {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contact-panel {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes contact-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer utilities {
+  .dark-panel {
+    @apply transition-colors;
+    border-color: rgba(148, 163, 184, 0.18);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(249, 251, 255, 0.96) 100%);
+    box-shadow: 0 16px 34px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.78);
+  }
+
+  .dark-panel-strong {
+    @apply transition-colors;
+    border-color: rgba(191, 219, 254, 0.65);
+    background:
+      radial-gradient(circle at top, rgba(59, 179, 232, 0.08), transparent 42%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 248, 253, 0.98) 100%);
+    box-shadow: 0 24px 48px rgba(148, 163, 184, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  }
+
+  .dark-section-alt {
+    @apply transition-colors;
+    background: linear-gradient(180deg, #fbfcff 0%, #f4f8fd 100%);
+  }
+
+  .dark-section-deep {
+    @apply transition-colors;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  }
+
+  .dark .dark-panel {
+    border-color: rgba(148, 163, 184, 0.14);
+    background: linear-gradient(180deg, rgba(11, 18, 32, 0.96) 0%, rgba(8, 14, 26, 0.98) 100%);
+    box-shadow: 0 18px 42px rgba(2, 8, 23, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .dark .dark-panel-strong {
+    border-color: rgba(59, 179, 232, 0.22);
+    background:
+      radial-gradient(circle at top, rgba(59, 179, 232, 0.12), transparent 42%),
+      linear-gradient(180deg, rgba(10, 18, 34, 0.98) 0%, rgba(7, 13, 26, 1) 100%);
+    box-shadow: 0 24px 60px rgba(1, 7, 19, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .dark .dark-section-alt {
+    background: linear-gradient(180deg, #08111e 0%, #07101a 100%);
+  }
+
+  .dark .dark-section-deep {
+    background: linear-gradient(180deg, #050a14 0%, #07101c 100%);
+  }
+
   .animate-hero-float {
     animation: hero-float 6.4s ease-in-out infinite;
   }
@@ -201,5 +289,21 @@
 
   .animate-hero-bar {
     animation: hero-bar 1.6s ease-in-out infinite;
+  }
+
+  .animate-contact-overlay {
+    animation: contact-overlay 0.2s ease-out both;
+  }
+
+  .animate-contact-panel {
+    animation: contact-panel 0.28s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-contact-reveal {
+    animation: contact-reveal 0.2s ease-out both;
+  }
+
+  .animate-contact-option {
+    animation: contact-reveal 0.24s ease-out both;
   }
 }

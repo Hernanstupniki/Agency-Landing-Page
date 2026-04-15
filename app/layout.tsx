@@ -75,12 +75,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: '/zubu-logo-favicon.png', sizes: '48x48', type: 'image/png' },
-      { url: '/zubu-logo-favicon.png', sizes: '512x512', type: 'image/png' },
-    ],
-    shortcut: [{ url: '/zubu-logo-favicon.png', type: 'image/png' }],
-    apple: [{ url: '/zubu-logo-favicon.png', sizes: '180x180', type: 'image/png' }],
+    icon: [{ url: '/zubu-logo-favicon.png', sizes: '1024x1024', type: 'image/png' }],
   },
 }
 

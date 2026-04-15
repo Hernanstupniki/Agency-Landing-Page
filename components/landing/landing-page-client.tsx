@@ -186,6 +186,100 @@ export function LandingPageClient() {
     setLanguage(detectBrowserLanguage())
   }, [])
 
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return
+    }
+
+    const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)")
+    let animationFrameId = 0
+
+    const easeOutCubic = (value: number) => 1 - Math.pow(1 - value, 3)
+
+    const animateScrollTo = (targetY: number) => {
+      cancelAnimationFrame(animationFrameId)
+
+      const startY = window.scrollY
+      const distance = targetY - startY
+
+      if (Math.abs(distance) < 2) {
+        window.scrollTo(0, targetY)
+        return
+      }
+
+      const duration = 420
+      const startTime = performance.now()
+
+      const step = (currentTime: number) => {
+        const elapsed = currentTime - startTime
+        const progress = Math.min(elapsed / duration, 1)
+        const easedProgress = easeOutCubic(progress)
+
+        window.scrollTo(0, startY + distance * easedProgress)
+
+        if (progress < 1) {
+          animationFrameId = window.requestAnimationFrame(step)
+        }
+      }
+
+      animationFrameId = window.requestAnimationFrame(step)
+    }
+
+    const handleDocumentClick = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return
+      }
+
+      const target = event.target as HTMLElement | null
+      const anchor = target?.closest("a[href^='#']") as HTMLAnchorElement | null
+
+      if (!anchor) {
+        return
+      }
+
+      const hash = anchor.getAttribute("href")
+
+      if (!hash || hash === "#") {
+        return
+      }
+
+      const destination = document.querySelector(hash) as HTMLElement | null
+
+      if (!destination) {
+        return
+      }
+
+      event.preventDefault()
+
+      const headerOffset = 76
+      const destinationTop = destination.getBoundingClientRect().top + window.scrollY - headerOffset
+
+      if (reduceMotionQuery.matches) {
+        window.scrollTo(0, destinationTop)
+      } else {
+        animateScrollTo(destinationTop)
+      }
+
+      if (window.location.hash !== hash) {
+        window.history.pushState(null, "", hash)
+      }
+    }
+
+    document.addEventListener("click", handleDocumentClick)
+
+    return () => {
+      cancelAnimationFrame(animationFrameId)
+      document.removeEventListener("click", handleDocumentClick)
+    }
+  }, [])
+
   const handleLanguageChange = (nextLanguage: Language) => {
     setLanguage(nextLanguage)
 

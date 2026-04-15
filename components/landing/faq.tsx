@@ -79,7 +79,7 @@ export function Faq({ language }: FaqProps) {
   const faqItems = isEn ? faqItemsEn : isPt ? faqItemsPt : faqItemsEs
 
   return (
-    <section id="faq" className="bg-background py-14 sm:py-20" aria-labelledby="faq-title">
+    <section id="faq" className="bg-background py-14 dark-section-deep sm:py-20" aria-labelledby="faq-title">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 id="faq-title" className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -96,7 +96,7 @@ export function Faq({ language }: FaqProps) {
 
         <div className="mt-12 space-y-4">
           {faqItems.map((item) => (
-            <details key={item.question} className="group rounded-2xl border border-border/60 bg-card p-6">
+            <details key={item.question} className="dark-panel group rounded-2xl border border-border/60 bg-card p-6">
               <summary className="cursor-pointer list-none pr-6 text-base font-semibold text-foreground marker:content-none">
                 {item.question}
               </summary>

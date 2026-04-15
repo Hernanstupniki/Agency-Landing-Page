@@ -28,24 +28,24 @@ const teamMembersEs = [
     name: "Hernan Stupniki",
     role: "Ingeniero de datos y automatización",
     description:
-      "Soy analista en sistemas y estudiante avanzado de Ingenieria en Sistemas de la Informacion. Me enfoco en Python, SQL, n8n, Spark y Airflow para disenar automatizaciones y soluciones de datos orientadas a resultados.",
-    photo: "/hernan-stupniki.jpg",
+      "Especialista en automatizacion, datos y procesos con Python, SQL y n8n.",
+    photo: "/hernan-stupniki.webp",
     linkedin: "https://www.linkedin.com/in/hernanstupniki/",
   },
   {
     name: "Tobias Tarnowski",
     role: "Tecnico informatico y analista de sistemas",
     description:
-      "Soy tecnico informatico y analista de sistemas. Me enfoco en Python, SQL y Power BI, y como estudiante de Ingenieria en Sistemas de Informacion trabajo para convertir datos y procesos en soluciones practicas para el negocio.",
-    photo: "/tobias-tarnowski.png",
+      "Enfocado en Python, SQL y Power BI para convertir datos en soluciones practicas.",
+    photo: "/tobias-tarnowski.webp",
     linkedin: "https://www.linkedin.com/in/tobiastarnowski/",
   },
   {
     name: "Facundo Salazar",
     role: "Analista en Sistemas",
     description:
-      "Soy analista en sistemas y estudiante avanzado de Ingenieria en Sistemas de la Informacion. Me enfoco en desarrollo de software, redes y automatizacion, con una mirada de emprendimiento y negocios tecnologicos para crear soluciones utiles y escalables.",
-    photo: "/facundo-salazar.png",
+      "Enfocado en software, redes y automatizacion con mirada de negocio.",
+    photo: "/facundo-salazar.webp",
     linkedin: "https://www.linkedin.com/in/facundosalazar/",
   },
 ]
@@ -55,24 +55,24 @@ const teamMembersEn = [
     name: "Hernan Stupniki",
     role: "Data and automation engineer",
     description:
-      "I am a systems analyst and an advanced Systems Engineering student. I focus on Python, SQL, n8n, Spark, and Airflow to design automation and data solutions oriented to real outcomes.",
-    photo: "/hernan-stupniki.jpg",
+      "Focused on automation, data, and process design with Python, SQL, and n8n.",
+    photo: "/hernan-stupniki.webp",
     linkedin: "https://www.linkedin.com/in/hernanstupniki/",
   },
   {
     name: "Tobias Tarnowski",
     role: "IT technician and systems analyst",
     description:
-      "I am an IT technician and systems analyst. I focus on Python, SQL, and Power BI, and as a Systems Engineering student I work to turn data and processes into practical business solutions.",
-    photo: "/tobias-tarnowski.png",
+      "Focused on Python, SQL, and Power BI to turn data into practical solutions.",
+    photo: "/tobias-tarnowski.webp",
     linkedin: "https://www.linkedin.com/in/tobiastarnowski/",
   },
   {
     name: "Facundo Salazar",
     role: "Systems analyst",
     description:
-      "I am a systems analyst and an advanced Systems Engineering student. I focus on software development, networks, and automation, with an entrepreneurial and business mindset to build useful and scalable solutions.",
-    photo: "/facundo-salazar.png",
+      "Focused on software, networks, and automation with a business mindset.",
+    photo: "/facundo-salazar.webp",
     linkedin: "https://www.linkedin.com/in/facundosalazar/",
   },
 ]
@@ -82,24 +82,24 @@ const teamMembersPt = [
     name: "Hernan Stupniki",
     role: "Engenheiro de dados e automacao",
     description:
-      "Sou analista de sistemas e estudante avancado de Engenharia de Sistemas. Trabalho com Python, SQL, n8n, Spark e Airflow para desenhar automacoes e solucoes de dados orientadas a resultados reais.",
-    photo: "/hernan-stupniki.jpg",
+      "Especialista em automacao, dados e processos com Python, SQL e n8n.",
+    photo: "/hernan-stupniki.webp",
     linkedin: "https://www.linkedin.com/in/hernanstupniki/",
   },
   {
     name: "Tobias Tarnowski",
     role: "Tecnico de TI e analista de sistemas",
     description:
-      "Sou tecnico de TI e analista de sistemas. Trabalho com Python, SQL e Power BI e, como estudante de Engenharia de Sistemas, transformo dados e processos em solucoes praticas para o negocio.",
-    photo: "/tobias-tarnowski.png",
+      "Focado em Python, SQL e Power BI para transformar dados em solucoes praticas.",
+    photo: "/tobias-tarnowski.webp",
     linkedin: "https://www.linkedin.com/in/tobiastarnowski/",
   },
   {
     name: "Facundo Salazar",
     role: "Analista de sistemas",
     description:
-      "Sou analista de sistemas e estudante avancado de Engenharia de Sistemas. Trabalho com desenvolvimento de software, redes e automacao, com visao de negocio para criar solucoes uteis e escalaveis.",
-    photo: "/facundo-salazar.png",
+      "Focado em software, redes e automacao com visao de negocio.",
+    photo: "/facundo-salazar.webp",
     linkedin: "https://www.linkedin.com/in/facundosalazar/",
   },
 ]
@@ -118,7 +118,7 @@ export function TeamSection({ language }: TeamSectionProps) {
   const teamMembers = isEn ? teamMembersEn : isPt ? teamMembersPt : teamMembersEs
 
   return (
-    <section id="equipo" className="bg-background py-14 sm:py-20">
+    <section id="equipo" className="bg-background py-14 dark-section-deep sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div>
           <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
@@ -126,7 +126,7 @@ export function TeamSection({ language }: TeamSectionProps) {
           </h3>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {teamMembers.map((member) => (
-              <article key={member.name} className="flex h-full flex-col rounded-2xl border border-border/60 bg-card px-6 pb-6 pt-6 shadow-sm">
+              <article key={member.name} className="dark-panel flex h-full flex-col rounded-2xl border border-border/60 bg-card px-6 pb-6 pt-6 shadow-sm">
                 <div className="flex items-center gap-4">
                   <Image
                     src={member.photo}
@@ -169,7 +169,7 @@ export function About({ language }: AboutProps) {
   const highlights = isEn ? highlightsEn : isPt ? highlightsPt : highlightsEs
 
   return (
-    <section id="nosotros" className="bg-muted/30 pb-14 pt-10 sm:pb-20 sm:pt-14">
+    <section id="nosotros" className="bg-muted/30 pb-14 pt-10 dark-section-alt sm:pb-20 sm:pt-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
@@ -193,7 +193,7 @@ export function About({ language }: AboutProps) {
             <ul className="mt-8 grid grid-cols-2 gap-4">
               {highlights.map((item) => (
                 <li key={item} className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-foreground" />
+                  <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-[#3BB3E8]" />
                   <span className="text-sm font-medium text-foreground">{item}</span>
                 </li>
               ))}
@@ -204,21 +204,21 @@ export function About({ language }: AboutProps) {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-border/50 to-transparent" />
               <div className="relative grid grid-cols-2 gap-4">
                 <div className="space-y-4">
-                  <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
+                  <div className="dark-panel rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
                     <div className="text-3xl font-bold text-foreground">+10</div>
                     <div className="mt-1 text-sm text-muted-foreground">{isEn ? "Delivered projects" : isPt ? "Projetos entregues" : "Proyectos entregados"}</div>
                   </div>
-                  <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
+                  <div className="dark-panel rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
                     <div className="text-3xl font-bold text-foreground">100%</div>
                     <div className="mt-1 text-sm text-muted-foreground">{isEn ? "Satisfied clients" : isPt ? "Clientes satisfeitos" : "Clientes satisfechos"}</div>
                   </div>
                 </div>
                 <div className="mt-8 space-y-4">
-                  <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
+                  <div className="dark-panel rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
                     <div className="text-3xl font-bold text-foreground">24/7</div>
                     <div className="mt-1 text-sm text-muted-foreground">{isEn ? "Systems running" : isPt ? "Sistemas funcionando" : "Sistemas funcionando"}</div>
                   </div>
-                  <div className="rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
+                  <div className="dark-panel rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
                     <div className="text-3xl font-bold text-foreground">-70%</div>
                     <div className="mt-1 text-sm text-muted-foreground">{isEn ? "Time on manual tasks" : isPt ? "Tempo em tarefas manuais" : "Tiempo en tareas manuales"}</div>
                   </div>

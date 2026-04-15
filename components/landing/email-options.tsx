@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Mail } from "lucide-react"
+import { ChevronDown, Mail, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import type { Language } from "@/components/landing/language"
 
@@ -31,63 +31,78 @@ export function EmailOptions({ language, onOptionSelected }: EmailOptionsProps) 
       <Button
         type="button"
         variant="outline"
-        className="w-full border-border text-foreground hover:border-foreground/35 hover:bg-foreground hover:text-background"
+        className="h-14 w-full justify-between rounded-2xl border-border/70 bg-background/88 px-5 text-base font-semibold text-foreground shadow-[0_10px_24px_rgba(148,163,184,0.12)] hover:border-foreground/18 hover:bg-foreground/4 hover:text-foreground dark:bg-white/[0.04] dark:hover:bg-white/[0.08]"
         onClick={() => setOpen((prev) => !prev)}
       >
-        {isEn ? "Email" : isPt ? "E-mail" : "Mail"}
+        <span className="flex items-center gap-3">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-[#3BB3E8]/12 text-[#3BB3E8]">
+            <Mail className="h-[18px] w-[18px]" />
+          </span>
+          {isEn ? "Email" : isPt ? "E-mail" : "Mail"}
+        </span>
+        <ChevronDown className={`h-4 w-4 text-muted-foreground transition-transform ${open ? "rotate-180" : ""}`} />
       </Button>
 
       {open && (
-        <div className="mt-2 rounded-xl border border-border bg-popover p-2 text-popover-foreground shadow-sm">
-          <p className="mb-2 px-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+        <div className="animate-contact-reveal mt-2 rounded-2xl border border-border/70 bg-popover/95 p-2 text-popover-foreground shadow-[0_16px_34px_rgba(15,23,42,0.12)] dark:bg-[#0b1220]/96">
+          <p className="mb-2 px-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
             {isEn ? "Choose how to send" : isPt ? "Escolha como enviar" : "Elegi como enviar"}
           </p>
 
-          <div className="space-y-1">
+          <div className="space-y-1.5">
             <a
               href={gmailUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm text-foreground transition-colors hover:bg-muted"
+              className="flex items-center justify-between gap-3 rounded-xl px-3 py-3 text-sm text-foreground transition-colors hover:bg-muted/80 dark:hover:bg-white/[0.06]"
               onClick={() => {
                 onOptionSelected?.()
                 setOpen(false)
               }}
             >
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#EA4335] text-xs font-bold text-white">
-                G
+              <span className="flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#EA4335] text-xs font-bold text-white">
+                  G
+                </span>
+                Gmail
               </span>
-              Gmail
+              <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </a>
 
             <a
               href={outlookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm text-foreground transition-colors hover:bg-muted"
+              className="flex items-center justify-between gap-3 rounded-xl px-3 py-3 text-sm text-foreground transition-colors hover:bg-muted/80 dark:hover:bg-white/[0.06]"
               onClick={() => {
                 onOptionSelected?.()
                 setOpen(false)
               }}
             >
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#0078D4] text-xs font-bold text-white">
-                O
+              <span className="flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-[#0078D4] text-xs font-bold text-white">
+                  O
+                </span>
+                Outlook
               </span>
-              Outlook
+              <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </a>
 
             <a
               href={mailtoUrl}
-              className="flex items-center gap-2 rounded-md px-2 py-2 text-sm text-foreground transition-colors hover:bg-muted"
+              className="flex items-center justify-between gap-3 rounded-xl px-3 py-3 text-sm text-foreground transition-colors hover:bg-muted/80 dark:hover:bg-white/[0.06]"
               onClick={() => {
                 onOptionSelected?.()
                 setOpen(false)
               }}
             >
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-md bg-black/80 text-white">
-                <Mail className="h-3.5 w-3.5" />
+              <span className="flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-black/80 text-white dark:bg-white dark:text-slate-950">
+                  <Mail className="h-4 w-4" />
+                </span>
+                {isEn ? "Default email app" : isPt ? "Aplicativo de e-mail padrao" : "Correo predeterminado"}
               </span>
-              {isEn ? "Default email app" : isPt ? "Aplicativo de e-mail padrao" : "Correo predeterminado"}
+              <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </a>
           </div>
         </div>

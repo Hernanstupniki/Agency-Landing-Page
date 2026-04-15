@@ -104,7 +104,7 @@ export function Testimonials({ language }: TestimonialsProps) {
   const testimonials = isEn ? testimonialsEn : isPt ? testimonialsPt : testimonialsEs
 
   return (
-    <section id="testimonios" className="bg-background py-14 sm:py-20">
+    <section id="testimonios" className="bg-background py-14 dark-section-deep sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -123,9 +123,9 @@ export function Testimonials({ language }: TestimonialsProps) {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.author}
-              className="relative rounded-2xl border border-border/60 bg-card p-8"
+              className="dark-panel relative rounded-2xl border border-border/60 bg-card p-8"
             >
-              <Quote className="absolute right-6 top-6 h-8 w-8 text-muted/30" />
+              <Quote className="absolute right-6 top-6 h-8 w-8 text-muted/30 dark:text-[#3BB3E8]/18" />
               <p className="text-lg leading-relaxed text-foreground">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
@@ -136,7 +136,7 @@ export function Testimonials({ language }: TestimonialsProps) {
                     {testimonial.role}, {testimonial.company}
                   </div>
                 </div>
-                <div className="rounded-lg bg-muted px-3 py-1.5 text-sm font-medium text-foreground">
+                <div className="rounded-lg border border-[#3BB3E8]/12 bg-[#3BB3E8]/10 px-3 py-1.5 text-sm font-medium text-[#15597b] dark:bg-[#3BB3E8]/10 dark:text-[#8cdcff]">
                   {testimonial.metric}
                 </div>
               </div>
