@@ -67,19 +67,19 @@ export function Hero({ language }: HeroProps) {
               <>
                 <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- manual tasks.</span>
                 <span className="block">- errors.</span>
-                <span className="block">+ sales.</span>
+                <span className="block text-[#3BB3E8]">+ sales.</span>
               </>
             ) : isPt ? (
               <>
                 <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tarefas manuais.</span>
                 <span className="block">- erros.</span>
-                <span className="block">+ vendas.</span>
+                <span className="block text-[#3BB3E8]">+ vendas.</span>
               </>
             ) : (
               <>
                 <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tareas manuales.</span>
                 <span className="block">- errores.</span>
-                <span className="block">+ ventas.</span>
+                <span className="block text-[#3BB3E8]">+ ventas.</span>
               </>
             )}
           </h1>
