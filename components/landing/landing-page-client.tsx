@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react"
 import type { Language } from "@/components/landing/language"
 import { Header } from "@/components/landing/header"
 import { Hero } from "@/components/landing/hero"
-import { About } from "@/components/landing/about"
+import { About, TeamSection } from "@/components/landing/about"
 import { Services } from "@/components/landing/services"
 import { TargetAudience } from "@/components/landing/target-audience"
 import { Differentiator } from "@/components/landing/differentiator"
@@ -207,6 +207,7 @@ export function LandingPageClient() {
         <Testimonials language={language} />
         <Faq language={language} />
         <CTA language={language} />
+        <TeamSection language={language} />
       </main>
       <Footer language={language} />
     </div>
