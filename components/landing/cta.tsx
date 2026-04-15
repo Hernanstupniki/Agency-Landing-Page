@@ -45,7 +45,11 @@ export function CTA({ language }: CTAProps) {
                   : "Empezá con un diagnóstico gratuito. Analizamos tu negocio y te mostramos cómo podemos ayudarte a ahorrar tiempo, reducir errores y escalar."}
               </p>
               <div className="mt-10">
-                <Button size="lg" className="h-14 px-10 text-base" onClick={() => setContactModalOpen(true)}>
+                <Button
+                  size="lg"
+                  className="h-14 bg-primary px-10 text-base text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground"
+                  onClick={() => setContactModalOpen(true)}
+                >
                   {isEn ? "I want to automate my business" : isPt ? "Quero automatizar meu negocio" : "Quiero automatizar mi negocio"}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -87,7 +91,7 @@ export function CTA({ language }: CTAProps) {
             </p>
 
             <div className="space-y-3">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground">
                 <a
                   href={calendarBookingUrl}
                   target="_blank"
@@ -97,7 +101,7 @@ export function CTA({ language }: CTAProps) {
                   {isEn ? "Book a meeting" : isPt ? "Quero agendar uma reuniao" : "Agendar una reunion"}
                 </a>
               </Button>
-              <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#1ebe5b]">
+              <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#169c47] hover:text-white">
                 <a
                   href={whatsappMessage}
                   target="_blank"

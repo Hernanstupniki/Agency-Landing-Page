@@ -31,7 +31,7 @@ export function EmailOptions({ language, onOptionSelected }: EmailOptionsProps) 
       <Button
         type="button"
         variant="outline"
-        className="w-full border-border text-foreground hover:bg-muted"
+        className="w-full border-border text-foreground hover:border-foreground/35 hover:bg-foreground hover:text-background"
         onClick={() => setOpen((prev) => !prev)}
       >
         {isEn ? "Email" : isPt ? "E-mail" : "Mail"}

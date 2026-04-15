@@ -95,13 +95,13 @@ export function Hero({ language }: HeroProps) {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
             <Button
               size="lg"
-              className="h-12 rounded-full bg-primary px-8 text-base text-primary-foreground shadow-[0_14px_32px_rgba(10,15,28,0.22)] hover:bg-primary/90"
+              className="h-12 rounded-full bg-primary px-8 text-base text-primary-foreground shadow-[0_14px_32px_rgba(10,15,28,0.22)] hover:bg-primary/80 hover:text-primary-foreground"
               onClick={() => setContactModalOpen(true)}
             >
               {isEn ? "Request an assessment" : isPt ? "Solicitar diagnostico" : "Solicitar diagnóstico"}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button asChild variant="outline" size="lg" className="h-12 rounded-full border-border bg-background/80 px-8 text-base text-foreground shadow-[0_10px_25px_rgba(148,163,184,0.2)] hover:bg-background dark:bg-card/85 dark:hover:bg-card">
+            <Button asChild variant="outline" size="lg" className="h-12 rounded-full border-border bg-background/85 px-8 text-base text-foreground shadow-[0_10px_25px_rgba(148,163,184,0.2)] hover:border-foreground/35 hover:bg-foreground hover:text-background dark:bg-card/85 dark:hover:border-foreground/35 dark:hover:bg-foreground dark:hover:text-background">
               <a href="#servicios">{isEn ? "Our services" : isPt ? "Nossos servicos" : "Nuestros servicios"}</a>
             </Button>
           </div>
@@ -169,7 +169,7 @@ export function Hero({ language }: HeroProps) {
             </p>
 
             <div className="space-y-3">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground">
                 <a
                   href={calendarBookingUrl}
                   target="_blank"
@@ -179,7 +179,7 @@ export function Hero({ language }: HeroProps) {
                   {calendarLabel}
                 </a>
               </Button>
-              <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#1ebe5b]">
+              <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#169c47] hover:text-white">
                 <a
                   href={whatsappMessage}
                   target="_blank"

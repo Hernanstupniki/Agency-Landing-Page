@@ -139,7 +139,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           <div className="hidden items-center gap-2 md:flex md:justify-self-end">
             <button
               type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-muted"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:border-foreground/30 hover:bg-muted hover:text-foreground"
               onClick={toggleTheme}
               aria-label={toggleThemeLabel}
               title={toggleThemeLabel}
@@ -149,7 +149,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             <div className="relative">
               <button
                 type="button"
-                className="inline-flex h-9 items-center gap-2 rounded-md border border-border bg-background px-3 text-sm text-foreground"
+                className="inline-flex h-9 items-center gap-2 rounded-md border border-border bg-background px-3 text-sm text-foreground transition-colors hover:border-foreground/30 hover:bg-muted hover:text-foreground"
                 onClick={() => setLanguageMenuOpen((prev) => !prev)}
                 aria-haspopup="menu"
                 aria-expanded={languageMenuOpen}
@@ -164,7 +164,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                 <div className="absolute right-0 top-11 z-50 w-40 rounded-md border border-border bg-background p-1 shadow-md">
                   <button
                     type="button"
-                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm hover:bg-muted"
+                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted hover:text-foreground"
                     onClick={() => {
                       onLanguageChange("es")
                       setLanguageMenuOpen(false)
@@ -175,7 +175,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   </button>
                   <button
                     type="button"
-                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm hover:bg-muted"
+                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted hover:text-foreground"
                     onClick={() => {
                       onLanguageChange("en")
                       setLanguageMenuOpen(false)
@@ -186,7 +186,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   </button>
                   <button
                     type="button"
-                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm hover:bg-muted"
+                    className="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted hover:text-foreground"
                     onClick={() => {
                       onLanguageChange("pt")
                       setLanguageMenuOpen(false)
@@ -200,7 +200,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             </div>
             <Button
               size="sm"
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground"
               onClick={() => setContactModalOpen(true)}
             >
               {contactLabel}
@@ -211,7 +211,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           <div className="ml-auto flex items-center gap-1 md:hidden">
             <button
               type="button"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:bg-muted"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border bg-background text-foreground transition-colors hover:border-foreground/30 hover:bg-muted hover:text-foreground"
               onClick={toggleTheme}
               aria-label={toggleThemeLabel}
               title={toggleThemeLabel}
@@ -219,7 +219,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               {isDarkMode ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
             <button
-              className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground"
+              className="inline-flex items-center justify-center rounded-md border border-transparent p-2 text-muted-foreground transition-colors hover:border-border hover:bg-muted hover:text-foreground"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? closeMenuLabel : openMenuLabel}
             >
@@ -248,7 +248,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   <div className="grid grid-cols-3 gap-2">
                     <button
                       type="button"
-                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
+                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm transition-colors hover:bg-muted hover:text-foreground ${
                         language === "es"
                           ? "border-foreground bg-muted text-foreground"
                           : "border-border bg-background text-muted-foreground"
@@ -260,7 +260,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                     </button>
                     <button
                       type="button"
-                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
+                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm transition-colors hover:bg-muted hover:text-foreground ${
                         language === "en"
                           ? "border-foreground bg-muted text-foreground"
                           : "border-border bg-background text-muted-foreground"
@@ -272,7 +272,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                     </button>
                     <button
                       type="button"
-                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm ${
+                      className={`inline-flex items-center justify-center gap-2 rounded-md border px-3 py-2 text-sm transition-colors hover:bg-muted hover:text-foreground ${
                         language === "pt"
                           ? "border-foreground bg-muted text-foreground"
                           : "border-border bg-background text-muted-foreground"
@@ -285,7 +285,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   </div>
                 </div>
                 <Button
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground"
                   onClick={() => {
                     setMobileMenuOpen(false)
                     setContactModalOpen(true)
@@ -324,7 +324,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             </p>
 
             <div className="space-y-3">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground">
                 <a
                   href={calendarBookingUrl}
                   target="_blank"
@@ -334,7 +334,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   {calendarLabel}
                 </a>
               </Button>
-              <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#1ebe5b]">
+              <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#169c47] hover:text-white">
                 <a
                   href={whatsappMessage}
                   target="_blank"

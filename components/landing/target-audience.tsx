@@ -4,7 +4,9 @@ import {
   Utensils, 
   ShoppingCart, 
   Home, 
-  Briefcase 
+  Briefcase,
+  Stethoscope,
+  Scissors,
 } from "lucide-react"
 import type { Language } from "@/components/landing/language"
 
@@ -39,6 +41,26 @@ const audiencesEs = [
     title: "Estudios y negocios",
     description: "Profesionales que necesitan digitalizar procesos y tener más control",
   },
+  {
+    icon: Stethoscope,
+    title: "Clínicas",
+    description: "Centros de salud que quieren automatizar turnos, recordatorios y seguimiento de pacientes",
+  },
+  {
+    icon: Scissors,
+    title: "Barberías",
+    description: "Equipos que necesitan ordenar agenda, recordatorios y atención por WhatsApp",
+  },
+  {
+    icon: Scissors,
+    title: "Peluquerías",
+    description: "Salones que buscan automatizar reservas, confirmaciones y campañas de fidelización",
+  },
+  {
+    icon: Stethoscope,
+    title: "Cliniecas",
+    description: "Negocios que se identifican con ese rubro y quieren digitalizar la atención al cliente",
+  },
 ]
 
 const audiencesEn = [
@@ -72,6 +94,26 @@ const audiencesEn = [
     title: "Firms and businesses",
     description: "Professionals who need to digitize processes and gain more control",
   },
+  {
+    icon: Stethoscope,
+    title: "Clinics",
+    description: "Health centers that want to automate appointments, reminders, and patient follow-up",
+  },
+  {
+    icon: Scissors,
+    title: "Barbershops",
+    description: "Teams that need better scheduling, reminders, and WhatsApp customer care",
+  },
+  {
+    icon: Scissors,
+    title: "Hair salons",
+    description: "Salons looking to automate bookings, confirmations, and retention campaigns",
+  },
+  {
+    icon: Stethoscope,
+    title: "Cliniecas",
+    description: "Businesses identified with this segment that want to digitize customer service",
+  },
 ]
 
 const audiencesPt = [
@@ -104,6 +146,26 @@ const audiencesPt = [
     icon: Store,
     title: "Escritorios e negocios",
     description: "Profissionais que precisam digitalizar processos e ter mais controle",
+  },
+  {
+    icon: Stethoscope,
+    title: "Clinicas",
+    description: "Centros de saude que querem automatizar agendamentos, lembretes e acompanhamento de pacientes",
+  },
+  {
+    icon: Scissors,
+    title: "Barbearias",
+    description: "Equipes que precisam organizar agenda, lembretes e atendimento por WhatsApp",
+  },
+  {
+    icon: Scissors,
+    title: "Saloes de beleza",
+    description: "Saloes que buscam automatizar reservas, confirmacoes e campanhas de fidelizacao",
+  },
+  {
+    icon: Stethoscope,
+    title: "Cliniecas",
+    description: "Negocios desse segmento que querem digitalizar o atendimento ao cliente",
   },
 ]
 

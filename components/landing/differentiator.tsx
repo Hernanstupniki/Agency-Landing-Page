@@ -51,7 +51,7 @@ export function Differentiator({ language }: DifferentiatorProps) {
                 <button
                   type="button"
                   onClick={() => setContactModalOpen(true)}
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/80 hover:text-primary-foreground"
                 >
                   {isEn ? "CONTACT US" : isPt ? "FALE CONOSCO" : "CONTACTANOS"}
                   <ArrowRight className="h-4 w-4" />
@@ -91,7 +91,7 @@ export function Differentiator({ language }: DifferentiatorProps) {
             </p>
 
             <div className="space-y-3">
-              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground">
                 <a
                   href={calendarBookingUrl}
                   target="_blank"
@@ -101,7 +101,7 @@ export function Differentiator({ language }: DifferentiatorProps) {
                   {isEn ? "Book a meeting" : isPt ? "Quero agendar uma reuniao" : "Agendar una reunion"}
                 </a>
               </Button>
-              <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#1ebe5b]">
+              <Button asChild className="w-full bg-[#25D366] text-white hover:bg-[#169c47] hover:text-white">
                 <a
                   href={whatsappMessage}
                   target="_blank"
