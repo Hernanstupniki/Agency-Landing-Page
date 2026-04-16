@@ -186,7 +186,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
             </div>
             <Button
               size="sm"
-              className="bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground"
+              className="contact-cta-shine border"
               onClick={() => setContactModalOpen(true)}
             >
               {contactLabel}
@@ -271,7 +271,7 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
                   </div>
                 </div>
                 <Button
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/80 hover:text-primary-foreground"
+                  className="contact-cta-shine w-full border"
                   onClick={() => {
                     setMobileMenuOpen(false)
                     setContactModalOpen(true)

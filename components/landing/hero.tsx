@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ContactModal } from "@/components/landing/contact-modal"
-import { ArrowRight, Zap, BarChart3, Bot } from "lucide-react"
+import { ArrowRight, BarChart3, Bot, Zap } from "lucide-react"
 import type { Language } from "@/components/landing/language"
 
 type HeroProps = {
@@ -20,7 +20,7 @@ export function Hero({ language }: HeroProps) {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,#ffffff_0%,#f5f9ff_42%,#eef4fb_100%)] pb-10 pt-4 dark:bg-[radial-gradient(circle_at_top_left,#112442_0%,#09111f_42%,#050a14_100%)] sm:pb-12 sm:pt-6 lg:pb-14 lg:pt-8" aria-labelledby="hero-title">
+      <section className="relative overflow-hidden bg-[radial-gradient(circle_at_88%_14%,rgba(38,38,220,0.1),transparent_24%),radial-gradient(circle_at_top_left,#ffffff_0%,#f5f9ff_42%,#eef4fb_100%)] pb-10 pt-4 dark:bg-[radial-gradient(circle_at_88%_14%,rgba(88,88,255,0.18),transparent_26%),radial-gradient(circle_at_top_left,#112442_0%,#09111f_42%,#050a14_100%)] sm:pb-12 sm:pt-6 lg:pb-14 lg:pt-8" aria-labelledby="hero-title">
         <div className="absolute inset-0 -z-10">
           <div className="absolute -left-24 top-0 h-80 w-80 animate-hero-float rounded-full bg-[#8edfff]/26 blur-3xl dark:bg-[#3BB3E8]/18" />
           <div className="absolute -right-24 top-8 h-96 w-96 animate-hero-float-reverse rounded-full bg-[#d8ecff]/40 blur-3xl dark:bg-[#1a2f53]/42" />
@@ -81,14 +81,17 @@ export function Hero({ language }: HeroProps) {
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
               <Button
                 size="lg"
-                className="h-12 rounded-full bg-primary px-8 text-base text-primary-foreground shadow-[0_14px_32px_rgba(10,15,28,0.22)] hover:bg-primary/80 hover:text-primary-foreground"
+                className="contact-cta-shine h-12 rounded-full border px-8 text-base"
                 onClick={() => setContactModalOpen(true)}
               >
                 {isEn ? "Contact us" : isPt ? "Fale conosco" : "Contactanos"}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 rounded-full border-border bg-background/85 px-8 text-base text-foreground shadow-[0_10px_25px_rgba(148,163,184,0.2)] hover:border-foreground/35 hover:bg-foreground hover:text-background dark:bg-card/85 dark:hover:border-foreground/35 dark:hover:bg-foreground dark:hover:text-background">
-                <a href="#servicios">{isEn ? "Our services" : isPt ? "Nossos servicos" : "Nuestros servicios"}</a>
+              <Button asChild variant="outline" size="lg" className="group h-12 rounded-full border-border bg-background/85 px-8 text-base text-foreground shadow-[0_10px_25px_rgba(148,163,184,0.2)] transition-transform hover:-translate-y-0.5 hover:border-foreground/35 hover:bg-foreground hover:text-background dark:bg-card/85 dark:hover:border-foreground/35 dark:hover:bg-foreground dark:hover:text-background">
+                <a href="#servicios">
+                  <span>{isEn ? "Our services" : isPt ? "Nossos servicos" : "Nuestros servicios"}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                </a>
               </Button>
             </div>
           </div>
@@ -107,23 +110,23 @@ export function Hero({ language }: HeroProps) {
 
             <div className="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-3">
               <div className="dark-panel animate-hero-float rounded-2xl border border-border/70 bg-card p-4 text-left shadow-sm">
-                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#3BB3E8]/12 text-[#3BB3E8]">
+                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-[1rem] border border-[#3BB3E8]/16 bg-[linear-gradient(180deg,rgba(59,179,232,0.12),rgba(38,38,220,0.05))] text-[#3BB3E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_10px_18px_rgba(59,179,232,0.08)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_14px_24px_rgba(2,8,23,0.24)]">
                   <Zap className="h-5 w-5" />
                 </div>
                 <p className="text-sm font-semibold text-foreground">{isEn ? "Automation" : isPt ? "Automacao" : "Automatización"}</p>
               </div>
               <div className="dark-panel animate-hero-float-delayed rounded-2xl border border-border/70 bg-card p-4 text-left shadow-sm">
-                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#3BB3E8]/12 text-[#3BB3E8]">
-                  <BarChart3 className="h-5 w-5" />
-                </div>
-                <p className="text-sm font-semibold text-foreground">{isEn ? "Custom software" : isPt ? "Software sob medida" : "Software a medida"}</p>
+              <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-[1rem] border border-[#3BB3E8]/16 bg-[linear-gradient(180deg,rgba(59,179,232,0.12),rgba(38,38,220,0.05))] text-[#3BB3E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_10px_18px_rgba(59,179,232,0.08)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_14px_24px_rgba(2,8,23,0.24)]">
+                <BarChart3 className="h-5 w-5" />
               </div>
-              <div className="dark-panel animate-hero-float rounded-2xl border border-border/70 bg-card p-4 text-left shadow-sm [animation-delay:0.9s]">
-                <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#3BB3E8]/12 text-[#3BB3E8]">
-                  <Bot className="h-5 w-5" />
-                </div>
-                <p className="text-sm font-semibold text-foreground">{isEn ? "Applied AI" : isPt ? "IA aplicada" : "IA aplicada"}</p>
+              <p className="text-sm font-semibold text-foreground">{isEn ? "Custom software" : isPt ? "Software sob medida" : "Software a medida"}</p>
+            </div>
+            <div className="dark-panel animate-hero-float rounded-2xl border border-border/70 bg-card p-4 text-left shadow-sm [animation-delay:0.9s]">
+              <div className="mb-2 inline-flex h-10 w-10 items-center justify-center rounded-[1rem] border border-[#3BB3E8]/16 bg-[linear-gradient(180deg,rgba(59,179,232,0.12),rgba(38,38,220,0.05))] text-[#3BB3E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.28),0_10px_18px_rgba(59,179,232,0.08)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_14px_24px_rgba(2,8,23,0.24)]">
+                <Bot className="h-5 w-5" />
               </div>
+              <p className="text-sm font-semibold text-foreground">{isEn ? "Applied AI" : isPt ? "IA aplicada" : "IA aplicada"}</p>
+            </div>
             </div>
           </div>
         </div>

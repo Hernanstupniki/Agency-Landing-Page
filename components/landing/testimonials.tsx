@@ -108,7 +108,19 @@ export function Testimonials({ language }: TestimonialsProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {isEn ? "Clients who trusted ZUBU" : isPt ? "Clientes que confiaram na ZUBU" : "Clientes que confiaron en ZUBU"}
+            {isEn ? (
+              <>
+                Clients who trusted <span className="indigo-accent">ZUBU</span>
+              </>
+            ) : isPt ? (
+              <>
+                Clientes que confiaram na <span className="indigo-accent">ZUBU</span>
+              </>
+            ) : (
+              <>
+                Clientes que confiaron en <span className="indigo-accent">ZUBU</span>
+              </>
+            )}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             {isEn

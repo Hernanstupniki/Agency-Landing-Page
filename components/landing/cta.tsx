@@ -26,7 +26,19 @@ export function CTA({ language }: CTAProps) {
 
             <div className="relative mx-auto max-w-2xl text-center">
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                {isEn ? "Turn manual processes into smart systems" : isPt ? "Transforme processos manuais em sistemas inteligentes" : "Transformá procesos manuales en sistemas inteligentes"}
+                {isEn ? (
+                  <>
+                    Turn manual processes into smart <span className="indigo-accent">systems</span>
+                  </>
+                ) : isPt ? (
+                  <>
+                    Transforme processos manuais em sistemas <span className="indigo-accent">inteligentes</span>
+                  </>
+                ) : (
+                  <>
+                    Transformá procesos manuales en sistemas <span className="indigo-accent">inteligentes</span>
+                  </>
+                )}
               </h2>
               <p className="mt-6 text-lg text-muted-foreground">
                 {isEn

@@ -1,14 +1,36 @@
-import { 
-  Building2, 
-  Store, 
-  Utensils, 
-  ShoppingCart, 
-  Home, 
+import type { SVGProps } from "react"
+import {
   Briefcase,
-  Stethoscope,
+  Building2,
+  Home,
   Scissors,
+  ShoppingCart,
+  Stethoscope,
+  Store,
+  Utensils,
 } from "lucide-react"
 import type { Language } from "@/components/landing/language"
+
+function SpaLeafIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      strokeWidth="1.85"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path d="M7.1 15.8c0-5 3.7-8.7 9.5-9.5-.8 5.8-4.5 9.5-9.5 9.5Z" />
+      <path d="M7.1 15.8c3 0 5.5 1 7.2 2.9" />
+      <path d="M10 13c1.4-.1 2.5-.6 3.5-1.6 1-1 1.7-2.3 2-3.7" />
+      <path d="m17.8 5.1.4 1 1 .4-1 .4-.4 1-.4-1-1-.4 1-.4.4-1Z" />
+    </svg>
+  )
+}
 
 const audiencesEs = [
   {
@@ -52,7 +74,7 @@ const audiencesEs = [
     description: "Equipos que necesitan ordenar agenda, recordatorios y atención por WhatsApp",
   },
   {
-    icon: Scissors,
+    icon: SpaLeafIcon,
     title: "Spas",
     description: "Salones que buscan automatizar reservas, confirmaciones y campañas de fidelización",
   },
@@ -100,7 +122,7 @@ const audiencesEn = [
     description: "Teams that need better scheduling, reminders, and WhatsApp customer care",
   },
   {
-    icon: Scissors,
+    icon: SpaLeafIcon,
     title: "Spas",
     description: "Salons looking to automate bookings, confirmations, and retention campaigns",
   },
@@ -148,7 +170,7 @@ const audiencesPt = [
     description: "Equipes que precisam organizar agenda, lembretes e atendimento por WhatsApp",
   },
   {
-    icon: Scissors,
+    icon: SpaLeafIcon,
     title: "Spas",
     description: "Saloes que buscam automatizar reservas, confirmacoes e campanhas de fidelizacao",
   },
@@ -168,7 +190,19 @@ export function TargetAudience({ language }: TargetAudienceProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {isEn ? "Who is ZUBU for?" : isPt ? "Para quem e a ZUBU?" : "¿Para quién es ZUBU?"}
+            {isEn ? (
+              <>
+                Who is <span className="indigo-accent">ZUBU</span> for?
+              </>
+            ) : isPt ? (
+              <>
+                Para quem e a <span className="indigo-accent">ZUBU</span>?
+              </>
+            ) : (
+              <>
+                ¿Para quién es <span className="indigo-accent">ZUBU</span>?
+              </>
+            )}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             {isEn
@@ -185,7 +219,7 @@ export function TargetAudience({ language }: TargetAudienceProps) {
               key={audience.title}
               className="flex items-start gap-4"
             >
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border border-[#3BB3E8]/18 bg-[#3BB3E8]/10 text-[#3BB3E8]">
+              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-[1.05rem] border border-[#3BB3E8]/18 bg-[linear-gradient(180deg,rgba(59,179,232,0.12),rgba(38,38,220,0.05))] text-[#3BB3E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.32),0_8px_18px_rgba(59,179,232,0.08)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_12px_22px_rgba(2,8,23,0.24)]">
                 <audience.icon className="h-6 w-6" />
               </div>
               <div>

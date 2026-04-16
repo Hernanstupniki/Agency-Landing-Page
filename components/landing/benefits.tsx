@@ -1,11 +1,11 @@
-import { 
-  Clock, 
-  ShieldCheck, 
-  Zap, 
-  Eye, 
-  ListChecks, 
-  TrendingUp, 
-  Heart 
+import {
+  Clock,
+  Eye,
+  Heart,
+  ListChecks,
+  ShieldCheck,
+  TrendingUp,
+  Zap,
 } from "lucide-react"
 import type { Language } from "@/components/landing/language"
 
@@ -137,7 +137,19 @@ export function Benefits({ language }: BenefitsProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {isEn ? "Results you can expect" : isPt ? "Resultados que voce pode esperar" : "Resultados que podés esperar"}
+            {isEn ? (
+              <>
+                Results you can <span className="indigo-accent">expect</span>
+              </>
+            ) : isPt ? (
+              <>
+                Resultados que voce pode <span className="indigo-accent">esperar</span>
+              </>
+            ) : (
+              <>
+                Resultados que podés <span className="indigo-accent">esperar</span>
+              </>
+            )}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             {isEn ? "Concrete and measurable benefits for your business" : isPt ? "Beneficios concretos e mensuraveis para o seu negocio" : "Beneficios concretos y medibles para tu negocio"}
@@ -150,7 +162,9 @@ export function Benefits({ language }: BenefitsProps) {
               key={benefit.title}
               className="dark-panel rounded-2xl border border-border/60 bg-card p-6"
             >
-              <benefit.icon className="h-8 w-8 text-[#3BB3E8]" />
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-[1.05rem] border border-[#3BB3E8]/16 bg-[linear-gradient(180deg,rgba(59,179,232,0.12),rgba(38,38,220,0.05))] text-[#3BB3E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_10px_18px_rgba(59,179,232,0.08)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_14px_24px_rgba(2,8,23,0.24)]">
+                <benefit.icon className="h-7 w-7" />
+              </div>
               <h3 className="mt-4 font-semibold text-foreground">{benefit.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{benefit.description}</p>
             </div>
@@ -163,7 +177,9 @@ export function Benefits({ language }: BenefitsProps) {
               key={benefit.title}
               className="dark-panel rounded-2xl border border-border/60 bg-card p-6"
             >
-              <benefit.icon className="h-8 w-8 text-[#3BB3E8]" />
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-[1.05rem] border border-[#3BB3E8]/16 bg-[linear-gradient(180deg,rgba(59,179,232,0.12),rgba(38,38,220,0.05))] text-[#3BB3E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_10px_18px_rgba(59,179,232,0.08)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_14px_24px_rgba(2,8,23,0.24)]">
+                <benefit.icon className="h-7 w-7" />
+              </div>
               <h3 className="mt-4 font-semibold text-foreground">{benefit.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{benefit.description}</p>
             </div>

@@ -1,12 +1,12 @@
-import { 
-  MessageSquare, 
-  Database, 
-  Link2, 
-  FileText, 
-  Code2, 
-  LayoutDashboard, 
-  BarChart3, 
-  Bot 
+import {
+  BarChart3,
+  Bot,
+  Code2,
+  Database,
+  FileText,
+  LayoutDashboard,
+  Link2,
+  MessageSquare,
 } from "lucide-react"
 import type { Language } from "@/components/landing/language"
 
@@ -153,7 +153,19 @@ export function Services({ language }: ServicesProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            {isEn ? "Our services" : isPt ? "Nossos servicos" : "Nuestros servicios"}
+            {isEn ? (
+              <>
+                Our <span className="indigo-accent">services</span>
+              </>
+            ) : isPt ? (
+              <>
+                Nossos <span className="indigo-accent">servicos</span>
+              </>
+            ) : (
+              <>
+                Nuestros <span className="indigo-accent">servicios</span>
+              </>
+            )}
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             {isEn
@@ -170,7 +182,7 @@ export function Services({ language }: ServicesProps) {
               key={service.title}
               className="dark-panel group rounded-2xl border border-border/60 bg-card p-6 transition-all hover:border-border hover:shadow-md dark:hover:border-[#3BB3E8]/22 dark:hover:shadow-[0_22px_50px_rgba(2,8,23,0.42)]"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#3BB3E8]/12 text-[#3BB3E8] transition-colors group-hover:bg-[#3BB3E8] group-hover:text-white">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[1.1rem] border border-[#3BB3E8]/14 bg-[linear-gradient(180deg,rgba(59,179,232,0.14),rgba(38,38,220,0.06))] text-[#3BB3E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.38),0_10px_18px_rgba(59,179,232,0.08)] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-[#3BB3E8]/28 group-hover:bg-[#3BB3E8] group-hover:text-white group-hover:shadow-[0_16px_28px_rgba(59,179,232,0.18)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_14px_26px_rgba(2,8,23,0.28)]">
                 <service.icon className="h-6 w-6" />
               </div>
               <h3 className="font-semibold text-foreground">{service.title}</h3>

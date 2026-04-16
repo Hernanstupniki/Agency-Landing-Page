@@ -1,7 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Layers, ArrowRight } from "lucide-react"
+import { ArrowRight, Layers } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { ContactModal } from "@/components/landing/contact-modal"
 import type { Language } from "@/components/landing/language"
 
@@ -24,7 +25,7 @@ export function Differentiator({ language }: DifferentiatorProps) {
             </div>
 
             <div className="mx-auto max-w-3xl text-center">
-              <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-2xl bg-[#3BB3E8]/12 text-[#3BB3E8]">
+              <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-[1.4rem] border border-[#3BB3E8]/16 bg-[linear-gradient(180deg,rgba(59,179,232,0.13),rgba(38,38,220,0.06))] text-[#3BB3E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.34),0_16px_30px_rgba(59,179,232,0.1)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_18px_30px_rgba(2,8,23,0.32)]">
                 <Layers className="h-8 w-8" />
               </div>
               <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -38,14 +39,13 @@ export function Differentiator({ language }: DifferentiatorProps) {
                   : "Diseñamos sistemas completos. Combinamos automatización, desarrollo de software, inteligencia artificial y métricas para que cada proceso sea más eficiente, más claro y más fácil de escalar."}
               </p>
               <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <button
-                  type="button"
+                <Button
                   onClick={() => setContactModalOpen(true)}
-                  className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/80 hover:text-primary-foreground"
+                  className="contact-cta-shine rounded-lg border px-6 py-3 text-sm font-semibold"
                 >
                   {isEn ? "CONTACT US" : isPt ? "FALE CONOSCO" : "CONTACTANOS"}
                   <ArrowRight className="h-4 w-4" />
-                </button>
+                </Button>
               </div>
             </div>
           </div>

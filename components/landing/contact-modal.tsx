@@ -107,7 +107,7 @@ export function ContactModal({ language, open, onClose }: ContactModalProps) {
           <div className="space-y-3">
             <Button
               asChild
-              className="animate-contact-option h-14 w-full justify-between rounded-2xl bg-[#121826] px-5 text-base font-semibold text-white shadow-[0_16px_38px_rgba(15,23,42,0.18)] hover:bg-[#0c1220] hover:text-white dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100"
+              className="contact-action animate-contact-option h-14 w-full justify-between rounded-2xl bg-[#121826] px-5 text-base font-semibold text-white shadow-[0_18px_42px_rgba(15,23,42,0.22)] hover:bg-[#0c1220] hover:text-white hover:shadow-[0_26px_52px_rgba(15,23,42,0.26)] dark:bg-white dark:text-slate-950 dark:hover:bg-slate-100 dark:hover:shadow-[0_26px_52px_rgba(2,8,23,0.36)]"
             >
               <a
                 href={calendarBookingUrl}
@@ -116,18 +116,18 @@ export function ContactModal({ language, open, onClose }: ContactModalProps) {
                 onClick={onClose}
               >
                 <span className="flex items-center gap-3">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/14 dark:bg-slate-200">
+                  <span className="contact-action-icon inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/14 dark:bg-slate-200">
                     <CalendarDays className="h-[18px] w-[18px]" />
                   </span>
                   {calendarLabel}
                 </span>
-                <ArrowUpRight className="h-4 w-4 opacity-80" />
+                <ArrowUpRight className="contact-action-arrow h-4 w-4 opacity-80" />
               </a>
             </Button>
 
             <Button
               asChild
-              className="animate-contact-option h-14 w-full justify-between rounded-2xl bg-[#25D366] px-5 text-base font-semibold text-white shadow-[0_16px_34px_rgba(37,211,102,0.22)] hover:bg-[#169c47] hover:text-white"
+              className="contact-action animate-contact-option h-14 w-full justify-between rounded-2xl bg-[#25D366] px-5 text-base font-semibold text-white shadow-[0_18px_38px_rgba(37,211,102,0.24)] hover:bg-[#169c47] hover:text-white hover:shadow-[0_26px_52px_rgba(22,156,71,0.28)]"
             >
               <a
                 href={whatsappMessage}
@@ -136,12 +136,12 @@ export function ContactModal({ language, open, onClose }: ContactModalProps) {
                 onClick={onClose}
               >
                 <span className="flex items-center gap-3">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/16">
+                  <span className="contact-action-icon inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/16">
                     <MessageCircleMore className="h-[18px] w-[18px]" />
                   </span>
                   WhatsApp
                 </span>
-                <ArrowUpRight className="h-4 w-4 opacity-80" />
+                <ArrowUpRight className="contact-action-arrow h-4 w-4 opacity-80" />
               </a>
             </Button>
 

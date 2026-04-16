@@ -122,7 +122,19 @@ export function TeamSection({ language }: TeamSectionProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div>
           <h3 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            {isEn ? "Our team" : isPt ? "Nosso time" : "Nuestro equipo"}
+            {isEn ? (
+              <>
+                Our <span className="indigo-accent">team</span>
+              </>
+            ) : isPt ? (
+              <>
+                Nosso <span className="indigo-accent">time</span>
+              </>
+            ) : (
+              <>
+                Nuestro <span className="indigo-accent">equipo</span>
+              </>
+            )}
           </h3>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {teamMembers.map((member) => (
@@ -174,7 +186,19 @@ export function About({ language }: AboutProps) {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              {isEn ? "Who we are" : isPt ? "Quem somos" : "Quiénes somos"}
+              {isEn ? (
+                <>
+                  Who we <span className="indigo-accent">are</span>
+                </>
+              ) : isPt ? (
+                <>
+                  Quem <span className="indigo-accent">somos</span>
+                </>
+              ) : (
+                <>
+                  Quiénes <span className="indigo-accent">somos</span>
+                </>
+              )}
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               {isEn
