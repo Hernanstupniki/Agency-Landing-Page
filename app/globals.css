@@ -194,6 +194,18 @@
   }
 }
 
+@keyframes chat-badge-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(88, 88, 255, 0.18);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 8px rgba(88, 88, 255, 0);
+  }
+}
+
 @keyframes contact-overlay {
   from {
     opacity: 0;
@@ -382,6 +394,11 @@
     animation: hero-bar 1.6s ease-in-out infinite;
   }
 
+  .animate-chat-badge {
+    animation: chat-badge-pulse 2.8s ease-in-out infinite;
+    will-change: transform, box-shadow;
+  }
+
   .animate-contact-overlay {
     animation: contact-overlay 0.2s ease-out both;
   }
@@ -528,7 +545,6 @@
     opacity: 0;
     pointer-events: none;
     z-index: 0;
-    animation: contact-cta-reflect 2.35s linear infinite;
   }
 
   .contact-cta-shine:hover {
@@ -561,7 +577,7 @@
   }
 
   .contact-cta-shine:hover::before {
-    animation-duration: 0.95s;
+    animation: contact-cta-reflect 0.95s ease-out both;
   }
 
   .contact-cta-shine:active {

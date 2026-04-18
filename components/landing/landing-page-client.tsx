@@ -15,7 +15,6 @@ import { Testimonials } from "@/components/landing/testimonials"
 import { Faq } from "@/components/landing/faq"
 import { CTA } from "@/components/landing/cta"
 import { Footer } from "@/components/landing/footer"
-import { FloatingChat } from "@/components/landing/floating-chat"
 
 const LANGUAGE_STORAGE_KEY = "zubu-language"
 
@@ -305,7 +304,6 @@ export function LandingPageClient() {
         <TeamSection language={language} />
       </main>
       <Footer language={language} />
-      <FloatingChat />
     </div>
   )
 }
