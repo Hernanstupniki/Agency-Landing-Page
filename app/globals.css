@@ -121,6 +121,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
     background:
       radial-gradient(circle at 82% 18%, rgba(38, 38, 220, 0.08), transparent 24%),
       radial-gradient(circle at 18% 72%, rgba(38, 38, 220, 0.04), transparent 26%),

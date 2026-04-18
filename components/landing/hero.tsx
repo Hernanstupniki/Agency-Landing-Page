@@ -15,7 +15,7 @@ export function Hero({ language }: HeroProps) {
   const [contactModalOpen, setContactModalOpen] = useState(false)
   const isEn = language === "en"
   const isPt = language === "pt"
-  const salesAccentClass = "sales-accent block w-fit font-black tracking-[-0.045em]"
+  const salesAccentClass = "sales-accent block font-black tracking-[-0.045em]"
 
   return (
     <>
@@ -29,7 +29,7 @@ export function Hero({ language }: HeroProps) {
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#d9e4f0_1px,transparent_1px),linear-gradient(to_bottom,#d9e4f0_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] opacity-40 [mask-image:radial-gradient(ellipse_70%_58%_at_50%_35%,#000_70%,transparent_100%)] dark:bg-[linear-gradient(to_right,rgba(113,135,168,0.16)_1px,transparent_1px),linear-gradient(to_bottom,rgba(113,135,168,0.16)_1px,transparent_1px)] dark:opacity-28" />
         </div>
 
-        <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.08fr)_520px] lg:gap-8 lg:px-8 xl:grid-cols-[minmax(0,1.12fr)_520px]">
+        <div className="mx-auto grid max-w-7xl items-start gap-8 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.08fr)_520px] lg:gap-8 lg:px-8 xl:grid-cols-[minmax(0,1.12fr)_520px]">
           <div className="text-center lg:text-left">
             <div className="mb-0 flex justify-center lg:justify-start">
               <span className="inline-flex items-center gap-1.5 px-0 py-0 text-xs font-medium text-muted-foreground">
@@ -49,30 +49,30 @@ export function Hero({ language }: HeroProps) {
 
             <h1
               id="hero-title"
-              className="mx-auto mb-3 mt-3 flex max-w-[19ch] flex-col items-center text-center text-[4.6rem] font-black leading-[0.96] tracking-[-0.03em] text-foreground sm:max-w-none lg:mx-0 lg:mb-5 lg:items-start lg:text-left"
+              className="mx-auto mb-3 mt-3 max-w-[12ch] text-center text-[3.85rem] font-black leading-[0.94] tracking-[-0.04em] text-foreground min-[420px]:text-[4.2rem] sm:max-w-none sm:text-[4.6rem] lg:mx-0 lg:mb-5 lg:text-left"
             >
               {isEn ? (
                 <>
-                  <span className="block w-fit lg:whitespace-nowrap lg:tracking-[-0.055em]">- manual tasks.</span>
-                  <span className="block w-fit">- errors.</span>
+                  <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- manual tasks.</span>
+                  <span className="block">- errors.</span>
                   <span className={salesAccentClass}>+ sales.</span>
                 </>
               ) : isPt ? (
                 <>
-                  <span className="block w-fit lg:whitespace-nowrap lg:tracking-[-0.055em]">- tarefas manuais.</span>
-                  <span className="block w-fit">- erros.</span>
+                  <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tarefas manuais.</span>
+                  <span className="block">- erros.</span>
                   <span className={salesAccentClass}>+ vendas.</span>
                 </>
               ) : (
                 <>
-                  <span className="block w-fit lg:whitespace-nowrap lg:tracking-[-0.055em]">- tareas manuales.</span>
-                  <span className="block w-fit">- errores.</span>
+                  <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tareas manuales.</span>
+                  <span className="block">- errores.</span>
                   <span className={salesAccentClass}>+ ventas.</span>
                 </>
               )}
             </h1>
 
-            <p className="mx-auto mt-2 max-w-xl text-pretty text-[15px] leading-6 text-muted-foreground lg:mx-0">
+            <p className="mx-auto mt-2 max-w-[23rem] text-pretty text-[14px] leading-6 text-muted-foreground sm:max-w-xl sm:text-[15px] lg:mx-0">
               {isEn
                 ? "We help businesses and SMEs save time, reduce errors, and increase sales through automation, custom software, bots, and smart integrations."
                 : isPt
@@ -80,7 +80,7 @@ export function Hero({ language }: HeroProps) {
                   : "Ayudamos a negocios y PyMEs a ahorrar tiempo, reducir errores y aumentar ventas mediante automatizaciones, software a medida, bots e integraciones inteligentes."}
             </p>
 
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
+            <div className="mt-7 flex flex-col items-center gap-4 sm:flex-row lg:items-start">
               <Button
                 size="lg"
                 className="contact-cta-shine h-12 rounded-full border px-8 text-base"
@@ -132,7 +132,7 @@ export function Hero({ language }: HeroProps) {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[32.5rem] pt-3 lg:w-[520px] lg:max-w-[520px] lg:justify-self-end lg:pt-6">
+          <div className="relative mx-auto w-full max-w-[32.5rem] pt-2 lg:w-[520px] lg:max-w-[520px] lg:justify-self-end lg:pt-6">
             <div className="pointer-events-none absolute inset-x-6 inset-y-4 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_50%_45%,rgba(88,88,255,0.22),rgba(38,38,220,0.12)_42%,transparent_75%)] blur-3xl dark:bg-[radial-gradient(circle_at_50%_45%,rgba(112,112,255,0.32),rgba(59,179,232,0.12)_45%,transparent_78%)]" />
             <LandingChatPanel language={language} />
           </div>
