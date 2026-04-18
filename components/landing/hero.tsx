@@ -15,8 +15,7 @@ export function Hero({ language }: HeroProps) {
   const [contactModalOpen, setContactModalOpen] = useState(false)
   const isEn = language === "en"
   const isPt = language === "pt"
-  const salesAccentClass =
-    "block font-black tracking-[-0.045em] bg-[linear-gradient(90deg,#5FE3F4_0%,#3BB3E8_34%,#3BB3E8_66%,#3397FF_100%)] bg-clip-text text-transparent"
+  const salesAccentClass = "sales-accent block font-black tracking-[-0.045em]"
 
   return (
     <>
