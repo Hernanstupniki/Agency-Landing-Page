@@ -182,14 +182,6 @@ export function LandingChatPanel({
     container.scrollTop = container.scrollHeight
   }, [messages, isSending])
 
-  useEffect(() => {
-    if (!inputRef.current) {
-      return
-    }
-
-    inputRef.current.focus()
-  }, [])
-
   const submitMessage = async () => {
     const normalized = normalizeLandingChatText(draft)
 

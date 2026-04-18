@@ -345,14 +345,6 @@
     filter: saturate(1.15) brightness(1.06);
   }
 
-  @media (max-width: 640px) {
-    .sales-accent {
-      background-image: linear-gradient(90deg, #8cf2ff 0%, #49bdf0 35%, #3bb3e8 68%, #4aa7ff 100%);
-      text-shadow: 0 0 20px rgba(59, 179, 232, 0.38);
-      filter: saturate(1.35) brightness(1.12);
-    }
-  }
-
   @supports not ((-webkit-background-clip: text) or (background-clip: text)) {
     .sales-accent {
       background-image: none;
