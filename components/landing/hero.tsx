@@ -15,7 +15,7 @@ export function Hero({ language }: HeroProps) {
   const [contactModalOpen, setContactModalOpen] = useState(false)
   const isEn = language === "en"
   const isPt = language === "pt"
-  const salesAccentClass = "sales-accent block font-black tracking-[-0.045em]"
+  const salesAccentClass = "sales-accent block w-fit font-black tracking-[-0.045em]"
 
   return (
     <>
@@ -49,24 +49,24 @@ export function Hero({ language }: HeroProps) {
 
             <h1
               id="hero-title"
-              className="mx-auto mb-3 mt-3 max-w-[19ch] text-center text-[4.6rem] font-black leading-[0.96] tracking-[-0.03em] text-foreground sm:max-w-none lg:mx-0 lg:mb-5 lg:text-left"
+              className="mx-auto mb-3 mt-3 flex max-w-[19ch] flex-col items-center text-center text-[4.6rem] font-black leading-[0.96] tracking-[-0.03em] text-foreground sm:max-w-none lg:mx-0 lg:mb-5 lg:items-start lg:text-left"
             >
               {isEn ? (
                 <>
-                  <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- manual tasks.</span>
-                  <span className="block">- errors.</span>
+                  <span className="block w-fit lg:whitespace-nowrap lg:tracking-[-0.055em]">- manual tasks.</span>
+                  <span className="block w-fit">- errors.</span>
                   <span className={salesAccentClass}>+ sales.</span>
                 </>
               ) : isPt ? (
                 <>
-                  <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tarefas manuais.</span>
-                  <span className="block">- erros.</span>
+                  <span className="block w-fit lg:whitespace-nowrap lg:tracking-[-0.055em]">- tarefas manuais.</span>
+                  <span className="block w-fit">- erros.</span>
                   <span className={salesAccentClass}>+ vendas.</span>
                 </>
               ) : (
                 <>
-                  <span className="block lg:whitespace-nowrap lg:tracking-[-0.055em]">- tareas manuales.</span>
-                  <span className="block">- errores.</span>
+                  <span className="block w-fit lg:whitespace-nowrap lg:tracking-[-0.055em]">- tareas manuales.</span>
+                  <span className="block w-fit">- errores.</span>
                   <span className={salesAccentClass}>+ ventas.</span>
                 </>
               )}
