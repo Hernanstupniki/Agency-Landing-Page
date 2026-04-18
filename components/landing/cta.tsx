@@ -25,7 +25,7 @@ export function CTA({ language }: CTAProps) {
             <div className="absolute -bottom-20 -left-20 h-40 w-40 rounded-full bg-muted/50 dark:bg-[#1a2840]/90" />
 
             <div className="relative mx-auto max-w-2xl text-center">
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <h2 className="text-4xl font-bold tracking-tight text-foreground">
                 {isEn ? (
                   <>
                     Turn manual processes into smart <span className="indigo-accent">systems</span>

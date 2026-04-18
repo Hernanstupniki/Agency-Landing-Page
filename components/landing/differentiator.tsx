@@ -28,7 +28,7 @@ export function Differentiator({ language }: DifferentiatorProps) {
               <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-[1.4rem] border border-[#3BB3E8]/16 bg-[linear-gradient(180deg,rgba(59,179,232,0.13),rgba(38,38,220,0.06))] text-[#3BB3E8] shadow-[inset_0_1px_0_rgba(255,255,255,0.34),0_16px_30px_rgba(59,179,232,0.1)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_18px_30px_rgba(2,8,23,0.32)]">
                 <Layers className="h-8 w-8" />
               </div>
-              <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              <h2 className="text-4xl font-bold tracking-tight text-foreground">
                 {isEn ? "We do more than automate isolated tasks" : isPt ? "Fazemos mais do que automatizar tarefas isoladas" : "No solo automatizamos tareas sueltas"}
               </h2>
               <p className="mt-6 text-lg leading-relaxed text-muted-foreground">

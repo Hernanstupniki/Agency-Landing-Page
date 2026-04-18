@@ -49,7 +49,7 @@ export function Hero({ language }: HeroProps) {
 
             <h1
               id="hero-title"
-              className="mx-auto mb-3 mt-3 max-w-[19ch] text-center text-5xl font-black leading-[0.96] tracking-[-0.03em] text-foreground sm:max-w-none sm:text-6xl lg:mx-0 lg:mb-5 lg:text-left lg:text-[4.6rem]"
+              className="mx-auto mb-3 mt-3 max-w-[19ch] text-center text-[4.6rem] font-black leading-[0.96] tracking-[-0.03em] text-foreground sm:max-w-none lg:mx-0 lg:mb-5 lg:text-left"
             >
               {isEn ? (
                 <>
@@ -72,7 +72,7 @@ export function Hero({ language }: HeroProps) {
               )}
             </h1>
 
-            <p className="mx-auto mt-2 max-w-xl text-pretty text-sm leading-6 text-muted-foreground sm:text-[15px] lg:mx-0">
+            <p className="mx-auto mt-2 max-w-xl text-pretty text-[15px] leading-6 text-muted-foreground lg:mx-0">
               {isEn
                 ? "We help businesses and SMEs save time, reduce errors, and increase sales through automation, custom software, bots, and smart integrations."
                 : isPt

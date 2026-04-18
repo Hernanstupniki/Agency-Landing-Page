@@ -189,7 +189,7 @@ export function TargetAudience({ language }: TargetAudienceProps) {
     <section id="para-quien" className="bg-muted/30 py-14 dark-section-alt sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="text-4xl font-bold tracking-tight text-foreground">
             {isEn ? (
               <>
                 Who is <span className="indigo-accent">ZUBU</span> for?

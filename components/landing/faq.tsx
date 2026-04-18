@@ -82,7 +82,7 @@ export function Faq({ language }: FaqProps) {
     <section id="faq" className="bg-background py-14 dark-section-deep sm:py-20" aria-labelledby="faq-title">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 id="faq-title" className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+          <h2 id="faq-title" className="text-4xl font-bold tracking-tight text-foreground">
             {isEn ? (
               <>
                 Frequently asked <span className="indigo-accent">questions</span>
