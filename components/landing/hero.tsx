@@ -16,6 +16,11 @@ export function Hero({ language }: HeroProps) {
   const isEn = language === "en"
   const isPt = language === "pt"
   const salesAccentClass = "sales-accent block font-black tracking-[-0.045em]"
+  const chatBadgeLabel = isEn
+    ? "Ask your questions here!"
+    : isPt
+      ? "Tire suas duvidas aqui!"
+      : "¡Sacate tus dudas aqui!"
 
   return (
     <>
@@ -133,6 +138,11 @@ export function Hero({ language }: HeroProps) {
           </div>
 
           <div className="relative mx-auto w-full max-w-[32.5rem] pt-2 lg:w-[520px] lg:max-w-[520px] lg:justify-self-end lg:pt-6">
+            <div className="mb-3 flex justify-center lg:justify-start">
+              <div className="contact-cta-shine inline-flex h-11 items-center rounded-full border border-[#2626dc]/85 bg-[#2626dc] px-5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(38,38,220,0.34)]">
+                {chatBadgeLabel}
+              </div>
+            </div>
             <div className="pointer-events-none absolute inset-x-6 inset-y-4 -z-10 rounded-[2rem] bg-[radial-gradient(circle_at_50%_45%,rgba(88,88,255,0.22),rgba(38,38,220,0.12)_42%,transparent_75%)] blur-3xl dark:bg-[radial-gradient(circle_at_50%_45%,rgba(112,112,255,0.32),rgba(59,179,232,0.12)_45%,transparent_78%)]" />
             <LandingChatPanel language={language} />
           </div>
