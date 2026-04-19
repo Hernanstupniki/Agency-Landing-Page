@@ -137,9 +137,9 @@ export function Hero({ language }: HeroProps) {
             </div>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[32.5rem] pt-2 lg:w-[520px] lg:max-w-[520px] lg:justify-self-end lg:pt-6">
-            <div className="mb-4 flex w-full justify-center">
-              <p className="mx-auto whitespace-nowrap text-center text-[1.48rem] font-black leading-[0.94] tracking-[-0.05em] text-[#2626dc] drop-shadow-[0_8px_20px_rgba(38,38,220,0.22)] min-[420px]:text-[1.68rem] lg:text-[2.05rem] dark:text-[#5f73ff]">
+          <div className="relative mx-auto w-full max-w-[32.5rem] pt-1 lg:w-[520px] lg:max-w-[520px] lg:justify-self-end lg:pt-6">
+            <div className="mb-2 flex w-full justify-center">
+              <p className="-translate-y-1 mx-auto whitespace-nowrap text-center text-[1.42rem] font-black leading-[0.94] tracking-[-0.05em] text-[#2626dc] drop-shadow-[0_8px_20px_rgba(38,38,220,0.22)] min-[420px]:text-[1.6rem] lg:translate-y-0 lg:text-[2.05rem] dark:text-[#5f73ff]">
                 {chatBadgeLabel}
               </p>
             </div>

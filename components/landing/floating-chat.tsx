@@ -253,7 +253,7 @@ export function LandingChatPanel({
     <section
       aria-label="Chat de la landing"
       className={cn(
-        "dark-panel-strong relative flex h-[480px] w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/95 shadow-[0_24px_72px_rgba(15,23,42,0.16)] backdrop-blur-xl dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(10,18,34,0.98)_0%,rgba(7,13,26,0.99)_100%)]",
+        "dark-panel-strong relative flex h-[470px] w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/95 shadow-[0_24px_72px_rgba(15,23,42,0.16)] backdrop-blur-xl dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(10,18,34,0.98)_0%,rgba(7,13,26,0.99)_100%)]",
         className,
       )}
     >
