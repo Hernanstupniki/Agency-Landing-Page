@@ -17,10 +17,10 @@ export function Hero({ language }: HeroProps) {
   const isPt = language === "pt"
   const salesAccentClass = "sales-accent block font-black tracking-[-0.045em]"
   const chatBadgeLabel = isEn
-    ? "Ask your questions here!"
+    ? "Solve your questions here!"
     : isPt
-      ? "Tire suas duvidas aqui!"
-      : "¡Sacate tus dudas aqui!"
+      ? "Resolva suas duvidas aqui!"
+      : "¡Resolvé tus dudas acá!"
 
   return (
     <>
@@ -138,8 +138,8 @@ export function Hero({ language }: HeroProps) {
           </div>
 
           <div className="relative mx-auto w-full max-w-[32.5rem] pt-2 lg:w-[520px] lg:max-w-[520px] lg:justify-self-end lg:pt-6">
-            <div className="mb-3 flex justify-center">
-              <p className="contact-cta-shine max-w-[11ch] text-center text-[2.2rem] font-black leading-[0.92] tracking-[-0.05em] text-[#2626dc] drop-shadow-[0_10px_28px_rgba(38,38,220,0.28)] min-[420px]:text-[2.45rem] lg:max-w-[12ch] lg:text-[2.8rem] dark:text-[#5f73ff]">
+            <div className="mb-4 flex w-full justify-center">
+              <p className="contact-cta-shine mx-auto w-full max-w-[12.5ch] text-center text-[2.1rem] font-black leading-[0.92] tracking-[-0.055em] text-[#2626dc] drop-shadow-[0_10px_28px_rgba(38,38,220,0.28)] min-[420px]:text-[2.35rem] lg:max-w-[13ch] lg:text-[2.75rem] dark:text-[#5f73ff]">
                 {chatBadgeLabel}
               </p>
             </div>
