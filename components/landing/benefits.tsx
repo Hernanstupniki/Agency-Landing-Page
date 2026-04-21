@@ -139,15 +139,15 @@ export function Benefits({ language }: BenefitsProps) {
           <h2 className="text-4xl font-bold tracking-tight text-foreground">
             {isEn ? (
               <>
-                Results you can <span className="indigo-accent">expect</span>
+                Results you can <span>expect</span>
               </>
             ) : isPt ? (
               <>
-                Resultados que voce pode <span className="indigo-accent">esperar</span>
+                Resultados que voce pode <span>esperar</span>
               </>
             ) : (
               <>
-                Resultados que podés <span className="indigo-accent">esperar</span>
+                Resultados que podés <span>esperar</span>
               </>
             )}
           </h2>

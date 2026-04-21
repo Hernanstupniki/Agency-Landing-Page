@@ -328,7 +328,7 @@ export function LandingChatPanel({
           <Button
             type="submit"
             size="icon"
-            className="contact-cta-shine size-11 rounded-full"
+            className="chat-send-button size-11 rounded-full"
             disabled={isSending || normalizeLandingChatText(draft).length === 0}
             aria-label={copy.submitLabel}
           >

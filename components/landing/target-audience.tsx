@@ -192,15 +192,15 @@ export function TargetAudience({ language }: TargetAudienceProps) {
           <h2 className="text-4xl font-bold tracking-tight text-foreground">
             {isEn ? (
               <>
-                Who is <span className="indigo-accent">ZUBU</span> for?
+                Who is <span>ZUBU</span> for?
               </>
             ) : isPt ? (
               <>
-                Para quem e a <span className="indigo-accent">ZUBU</span>?
+                Para quem e a <span>ZUBU</span>?
               </>
             ) : (
               <>
-                ¿Para quién es <span className="indigo-accent">ZUBU</span>?
+                ¿Para quién es <span>ZUBU</span>?
               </>
             )}
           </h2>

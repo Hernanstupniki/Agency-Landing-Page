@@ -104,25 +104,19 @@ export function Testimonials({ language }: TestimonialsProps) {
   const testimonials = isEn ? testimonialsEn : isPt ? testimonialsPt : testimonialsEs
 
   return (
-    <section id="testimonios" className="bg-background py-14 dark-section-deep sm:py-20">
+    <section id="testimonios" className="testimonials-section py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-foreground">
+          <h2 className="testimonials-title text-4xl font-bold tracking-tight">
             {isEn ? (
-              <>
-                Clients who trusted <span className="indigo-accent">ZUBU</span>
-              </>
+              "Clients who trusted ZUBU"
             ) : isPt ? (
-              <>
-                Clientes que confiaram na <span className="indigo-accent">ZUBU</span>
-              </>
+              "Clientes que confiaram na ZUBU"
             ) : (
-              <>
-                Clientes que confiaron en <span className="indigo-accent">ZUBU</span>
-              </>
+              "Clientes que confiaron en ZUBU"
             )}
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="testimonials-subtitle mt-4 text-lg">
             {isEn
               ? "Our clients value clarity, efficiency, and the real impact of every implemented solution"
               : isPt
@@ -135,20 +129,20 @@ export function Testimonials({ language }: TestimonialsProps) {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.author}
-              className="dark-panel relative rounded-2xl border border-border/60 bg-card p-8"
+              className="testimonial-card relative rounded-2xl p-8"
             >
-              <Quote className="absolute right-6 top-6 h-8 w-8 text-muted/30 dark:text-[#3BB3E8]/18" />
-              <p className="text-lg leading-relaxed text-foreground">
+              <Quote className="testimonial-quote-icon absolute right-6 top-6 h-8 w-8" />
+              <p className="testimonial-quote text-lg leading-relaxed">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
               <div className="mt-6 flex items-center justify-between">
                 <div>
-                  <div className="font-semibold text-foreground">{testimonial.author}</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="testimonial-author font-semibold">{testimonial.author}</div>
+                  <div className="testimonial-role text-sm">
                     {testimonial.role}, {testimonial.company}
                   </div>
                 </div>
-                <div className="rounded-lg border border-[#3BB3E8]/12 bg-[#3BB3E8]/10 px-3 py-1.5 text-sm font-medium text-[#15597b] dark:bg-[#3BB3E8]/10 dark:text-[#8cdcff]">
+                <div className="testimonial-metric-pill rounded-full px-4 py-1.5 text-sm font-semibold">
                   {testimonial.metric}
                 </div>
               </div>

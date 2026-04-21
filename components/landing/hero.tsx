@@ -98,7 +98,7 @@ export function Hero({ language }: HeroProps) {
                 asChild
                 variant="outline"
                 size="lg"
-                className="group h-12 rounded-full border-border bg-background/85 px-8 text-base text-foreground shadow-[0_10px_25px_rgba(148,163,184,0.2)] transition-transform hover:-translate-y-0.5 hover:border-foreground/35 hover:bg-foreground hover:text-background dark:bg-card/85 dark:hover:border-foreground/35 dark:hover:bg-foreground dark:hover:text-background"
+                className="services-cta group h-12 rounded-full px-8 text-base"
               >
                 <a href="#servicios">
                   <span>{isEn ? "Our services" : isPt ? "Nossos servicos" : "Nuestros servicios"}</span>
@@ -139,7 +139,7 @@ export function Hero({ language }: HeroProps) {
 
           <div className="relative mx-auto w-full max-w-[32.5rem] pt-1 lg:w-[520px] lg:max-w-[520px] lg:justify-self-end lg:pt-6">
             <div className="mb-2 flex w-full justify-center">
-              <p className="-translate-y-1 mx-auto whitespace-nowrap text-center text-[1.42rem] font-black leading-[0.94] tracking-[-0.05em] text-[#2626dc] drop-shadow-[0_8px_20px_rgba(38,38,220,0.22)] min-[420px]:text-[1.6rem] lg:translate-y-0 lg:text-[2.05rem] dark:text-[#5f73ff]">
+              <p className="hero-chat-badge -translate-y-1 mx-auto whitespace-nowrap text-center text-[1.42rem] font-black leading-[0.94] tracking-[-0.05em] min-[420px]:text-[1.6rem] lg:translate-y-0 lg:text-[2.05rem]">
                 {chatBadgeLabel}
               </p>
             </div>

@@ -85,15 +85,15 @@ export function Faq({ language }: FaqProps) {
           <h2 id="faq-title" className="text-4xl font-bold tracking-tight text-foreground">
             {isEn ? (
               <>
-                Frequently asked <span className="indigo-accent">questions</span>
+                Frequently asked <span>questions</span>
               </>
             ) : isPt ? (
               <>
-                Perguntas <span className="indigo-accent">frequentes</span>
+                Perguntas <span>frequentes</span>
               </>
             ) : (
               <>
-                Preguntas <span className="indigo-accent">frecuentes</span>
+                Preguntas <span>frecuentes</span>
               </>
             )}
           </h2>

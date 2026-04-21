@@ -155,15 +155,15 @@ export function Services({ language }: ServicesProps) {
           <h2 className="text-4xl font-bold tracking-tight text-foreground">
             {isEn ? (
               <>
-                Our <span className="indigo-accent">services</span>
+                Our <span>services</span>
               </>
             ) : isPt ? (
               <>
-                Nossos <span className="indigo-accent">servicos</span>
+                Nossos <span>servicos</span>
               </>
             ) : (
               <>
-                Nuestros <span className="indigo-accent">servicios</span>
+                Nuestros <span>servicios</span>
               </>
             )}
           </h2>

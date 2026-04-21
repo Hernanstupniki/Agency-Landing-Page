@@ -124,15 +124,15 @@ export function TeamSection({ language }: TeamSectionProps) {
           <h3 className="text-3xl font-bold tracking-tight text-foreground">
             {isEn ? (
               <>
-                Our <span className="indigo-accent">team</span>
+                Our <span>team</span>
               </>
             ) : isPt ? (
               <>
-                Nosso <span className="indigo-accent">time</span>
+                Nosso <span>time</span>
               </>
             ) : (
               <>
-                Nuestro <span className="indigo-accent">equipo</span>
+                Nuestro <span>equipo</span>
               </>
             )}
           </h3>
@@ -188,15 +188,15 @@ export function About({ language }: AboutProps) {
             <h2 className="text-4xl font-bold tracking-tight text-foreground">
               {isEn ? (
                 <>
-                  Who we <span className="indigo-accent">are</span>
+                  Who we <span>are</span>
                 </>
               ) : isPt ? (
                 <>
-                  Quem <span className="indigo-accent">somos</span>
+                  Quem <span>somos</span>
                 </>
               ) : (
                 <>
-                  Quiénes <span className="indigo-accent">somos</span>
+                  Quiénes <span>somos</span>
                 </>
               )}
             </h2>

@@ -53,7 +53,7 @@ export function Footer({ language }: FooterProps) {
   const footerLinks = isEn ? footerLinksEn : isPt ? footerLinksPt : footerLinksEs
 
   return (
-    <footer className="border-t border-border/40 bg-background dark:border-white/10 dark:bg-[#040812]">
+    <footer className="dark-footer-glow border-t border-border/40 bg-background">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid gap-8 lg:grid-cols-4">
           {/* Brand */}
