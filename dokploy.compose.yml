@@ -1,0 +1,25 @@
+services:
+  zubu-web-dokploy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zubu-web-dokploy
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+
+    networks:
+      - proxy
+
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.routers.zubu-web-dokploy.rule=Host(`${DOMAIN_NAME:-zubuagency.com}`) || Host(`www.${DOMAIN_NAME:-zubuagency.com}`)
+      - traefik.http.routers.zubu-web-dokploy.entrypoints=web,websecure
+      - traefik.http.routers.zubu-web-dokploy.tls=true
+      - traefik.http.routers.zubu-web-dokploy.tls.certresolver=mytlschallenge
+      - traefik.http.services.zubu-web-dokploy.loadbalancer.server.port=3000
+
+networks:
+  proxy:
+    external: true
