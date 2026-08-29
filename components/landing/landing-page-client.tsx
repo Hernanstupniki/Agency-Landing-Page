@@ -70,19 +70,20 @@ export function LandingPageClient() {
           }
 
           const { reduceMotion } = media.conditions as { reduceMotion: boolean }
+          const safe = contextSafe ?? ((fn: (...args: any[]) => any) => fn)
 
           if (!reduceMotion) {
             gsap.from(buttons, {
-              autoAlpha: 0,
-              y: 10,
-              duration: 0.45,
+              opacity: 0,
+              y: 8,
+              duration: 0.35,
               ease: "power2.out",
               stagger: 0.04,
               clearProps: "opacity,visibility,transform",
             })
           }
 
-          const handleEnter = contextSafe((event: Event) => {
+          const handleEnter = safe((event: Event) => {
             if (reduceMotion) {
               return
             }
@@ -97,7 +98,7 @@ export function LandingPageClient() {
             })
           })
 
-          const handleLeave = contextSafe((event: Event) => {
+          const handleLeave = safe((event: Event) => {
             const target = event.currentTarget as HTMLElement
             gsap.to(target, {
               scale: 1,
@@ -108,7 +109,7 @@ export function LandingPageClient() {
             })
           })
 
-          const handlePress = contextSafe((event: Event) => {
+          const handlePress = safe((event: Event) => {
             if (reduceMotion) {
               return
             }
@@ -123,7 +124,7 @@ export function LandingPageClient() {
             })
           })
 
-          const handleRelease = contextSafe((event: Event) => {
+          const handleRelease = safe((event: Event) => {
             if (reduceMotion) {
               return
             }
