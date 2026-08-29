@@ -67,3 +67,11 @@ Estos patrones ya fueron observados en workflows accesibles del n8n conectado y 
 
 ## Objetivo permanente
 Ayudar a construir bots y sistemas de automatizacion para negocios, tanto con IA como sin IA, usando arquitectura solida, ordenada y mantenible.
+
+## Despliegue de la web
+
+- GitHub Actions valida `lint` y `build` antes de publicar.
+- Solo `main` publica `latest` y la etiqueta inmutable `sha-<commit>` en GHCR.
+- Dokploy usa `dokploy.compose.yml` con `image:`; la VPS no compila la aplicación.
+- El job de deploy requiere `DOKPLOY_URL` y `DOKPLOY_COMPOSE_ID` como variables del repositorio y `DOKPLOY_API_KEY` como secret. Si faltan o Dokploy termina en error, el workflow falla.
+- El Auto Deploy `On Push` de Dokploy debe permanecer apagado para que GitHub Actions sea el único disparador.
