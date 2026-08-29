@@ -1,16 +1,17 @@
 services:
   zubu-web-dokploy:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/hernanstupniki/agency-landing-page:${IMAGE_TAG:-latest}
     container_name: zubu-web-dokploy
     restart: unless-stopped
     environment:
       NODE_ENV: production
-
     networks:
       - proxy
-
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     labels:
       - traefik.enable=true
       - traefik.docker.network=proxy
