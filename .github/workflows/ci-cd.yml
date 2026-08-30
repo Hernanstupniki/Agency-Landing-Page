@@ -110,7 +110,7 @@ jobs:
         run: |
           echo "==> Triggering Dokploy deployment webhook..."
           curl --fail-with-body --show-error --silent \
-            --connect-timeout 10 --max-time 60 --retry 3 \
+            --connect-timeout 10 --max-time 300 --retry 3 \
             -H "Content-Type: application/json" \
             -H "x-github-event: push" \
             -d '{"ref":"refs/heads/main"}' \
