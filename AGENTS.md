@@ -70,8 +70,11 @@ Ayudar a construir bots y sistemas de automatizacion para negocios, tanto con IA
 
 ## Despliegue de la web
 
-- GitHub Actions valida `lint` y `build` antes de publicar.
+- GitHub Actions valida `typecheck` y `build` antes de publicar.
 - Solo `main` publica `latest` y la etiqueta inmutable `sha-<commit>` en GHCR.
 - Dokploy usa `dokploy.compose.yml` con `image:`; la VPS no compila la aplicación.
-- El job de deploy requiere `DOKPLOY_URL` y `DOKPLOY_COMPOSE_ID` como variables del repositorio y `DOKPLOY_API_KEY` como secret. Si faltan o Dokploy termina en error, el workflow falla.
+- La imagen incluye `APP_COMMIT_SHA`; `/api/health` lo reporta y el deploy sólo
+  termina bien cuando producción responde saludable con el commit exacto.
+- `latest` se promueve desde el digest SHA verificado, sin reconstruir, y el
+  Compose usa `pull_policy: always` para no reutilizar una imagen local stale.
 - El Auto Deploy `On Push` de Dokploy debe permanecer apagado para que GitHub Actions sea el único disparador.
