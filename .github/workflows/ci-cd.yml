@@ -44,6 +44,9 @@ jobs:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: quality
     runs-on: ubuntu-latest
+    outputs:
+      sha_digest: ${{ steps.verify-sha.outputs.digest }}
+      latest_digest: ${{ steps.verify-latest.outputs.digest }}
     permissions:
       contents: read
       packages: write
@@ -79,32 +82,76 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
+          build-args: |
+            APP_COMMIT_SHA=${{ github.sha }}
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+      - name: Verify immutable SHA identity and digest
+        id: verify-sha
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha_ref="${REGISTRY}/${IMAGE_NAME}:sha-${GITHUB_SHA}"
+
+          docker pull "$sha_ref" >/dev/null
+          revision="$(docker image inspect \
+            --format '{{ index .Config.Labels "org.opencontainers.image.revision" }}' \
+            "$sha_ref")"
+          if [[ "$revision" != "$GITHUB_SHA" ]]; then
+            echo "::error::The immutable SHA tag does not identify this commit."
+            exit 1
+          fi
+
+          manifest="$(mktemp)"
+          trap 'rm -f "$manifest"' EXIT
+          docker buildx imagetools inspect --raw "$sha_ref" > "$manifest"
+          digest="sha256:$(sha256sum "$manifest" | awk '{print $1}')"
+          if [[ ! "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]; then
+            echo "::error::Could not resolve a valid SHA image digest."
+            exit 1
+          fi
+
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+
       - name: Promote SHA image to latest
         run: |
+          set -euo pipefail
           echo "==> Promoting immutable sha-${GITHUB_SHA} to latest..."
-          docker buildx imagetools create \
+          docker buildx imagetools create --prefer-index=false \
             --tag "${REGISTRY}/${IMAGE_NAME}:latest" \
-            "${REGISTRY}/${IMAGE_NAME}:sha-${GITHUB_SHA}"
+            "${REGISTRY}/${IMAGE_NAME}@${{ steps.verify-sha.outputs.digest }}"
 
-      - name: Verify and log immutable digests
+      - name: Verify latest matches the immutable SHA image
+        id: verify-latest
+        shell: bash
         run: |
-          sha_inspect="$(docker buildx imagetools inspect "${REGISTRY}/${IMAGE_NAME}:sha-${GITHUB_SHA}")"
-          echo "=== GHCR INSPECT sha-${GITHUB_SHA} ==="
-          echo "$sha_inspect"
-          latest_inspect="$(docker buildx imagetools inspect "${REGISTRY}/${IMAGE_NAME}:latest")"
-          echo "=== GHCR INSPECT latest ==="
-          echo "$latest_inspect"
+          set -euo pipefail
+          latest_ref="${REGISTRY}/${IMAGE_NAME}:latest"
+          manifest="$(mktemp)"
+          trap 'rm -f "$manifest"' EXIT
+          docker buildx imagetools inspect --raw "$latest_ref" > "$manifest"
+          digest="sha256:$(sha256sum "$manifest" | awk '{print $1}')"
+
+          if [[ "$digest" != "${{ steps.verify-sha.outputs.digest }}" ]]; then
+            echo "::error::latest does not reference the verified immutable SHA manifest."
+            exit 1
+          fi
+
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
 
   deploy:
     needs: publish
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read
+    env:
+      PRODUCTION_HEALTHCHECK_URL: https://zubuagency.com/api/health
     steps:
       - name: Trigger Dokploy Webhook
         run: |
@@ -117,3 +164,53 @@ jobs:
             -X POST "http://72.62.15.178:3000/api/deploy/compose/WoiUudSb4KXNXmKyKp6rp"
           echo ""
           echo "==> Dokploy deployment triggered successfully."
+
+      - name: Verify deployed commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "==> Waiting for production to report commit $GITHUB_SHA..."
+          deadline=$((SECONDS + 900))
+          attempt=0
+
+          while (( SECONDS < deadline )); do
+            attempt=$((attempt + 1))
+            payload="$(curl --fail --show-error --silent \
+              --connect-timeout 3 --max-time 5 \
+              "$PRODUCTION_HEALTHCHECK_URL" 2>/dev/null || true)"
+
+            if [[ -n "$payload" ]]; then
+              read -r healthy deployed_commit < <(
+                node -e '
+                  try {
+                    const health = JSON.parse(process.argv[1]);
+                    console.log(`${health.ok === true} ${health.commit ?? ""}`);
+                  } catch {
+                    console.log("false unknown");
+                  }
+                ' "$payload"
+              )
+
+              if [[ "$healthy" == "true" && "$deployed_commit" == "$GITHUB_SHA" ]]; then
+                echo "==> Production is healthy and runs commit $GITHUB_SHA."
+                exit 0
+              fi
+
+              echo "Attempt $attempt: healthy=$healthy commit=${deployed_commit:-unknown}"
+            else
+              echo "Attempt $attempt: healthcheck unavailable"
+            fi
+
+            remaining=$((deadline - SECONDS))
+            if (( remaining <= 0 )); then
+              break
+            fi
+            if (( remaining < 10 )); then
+              sleep "$remaining"
+              break
+            fi
+            sleep 10
+          done
+
+          echo "::error::Production did not report healthy commit $GITHUB_SHA within 15 minutes."
+          exit 1
